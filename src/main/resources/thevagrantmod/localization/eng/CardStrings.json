@@ -30,10 +30,26 @@
   },
   "${modID}:Afflict": {
     "NAME": "Afflict",
-    "DESCRIPTION": "Apply !M! Blight."
+    "DESCRIPTION": "Apply !M! ${modID}:Blight."
   },
   "${modID}:ExplosiveBolt": {
     "NAME": "Explosive Bolt",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Jam."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${modID}:Jam."
+  },
+  "${modID}:RepeatingShot": {
+    "NAME": "Repeating Shot",
+    "DESCRIPTION": "Deal !D! damage. NL Add a copy of this card to your hand. NL Exhaust."
+  },
+  "${modID}:SplittingBolt": {
+    "NAME": "Splitting Bolt",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Can be upgraded any number of times."
+  },
+  "${modID}:Virulence": {
+    "NAME": "Virulence",
+    "DESCRIPTION": "Whenever you apply ${modID}:Blight, apply an additional !M! ${modID}:Blight."
+  },
+  "${modID}:WeepingWounds": {
+    "NAME": "Weeping Wounds",
+    "DESCRIPTION": "Deal !D! damage. NL Apply ${modID}:Blight equal to unblocked damage dealt."
   }
 }

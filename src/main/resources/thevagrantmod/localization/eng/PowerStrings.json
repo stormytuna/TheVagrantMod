@@ -4,5 +4,12 @@
     "DESCRIPTIONS": [
       "When you reach 20 Blight, lose 50 HP and then lose 20 Blight."
     ]
+  },
+  "${modID}:VirulencePower": {
+    "NAME": "Virulence",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yBlight, apply #b",
+      " additional #yBlight."
+    ]
   }
 }
