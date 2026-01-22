@@ -1,0 +1,13 @@
+# Project exclude paths
+/target/
+/.idea/
+.classpath
+.factorypath
+.project
+.settings/
+
+# Other stuff
+workshop/README.md
+workshop/steam_appid.txt
+workshop/content/
+sendToDevs/

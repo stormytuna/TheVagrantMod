@@ -1,0 +1,19 @@
+{
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:ExploitWeakness": {
+    "NAME": "Exploit Weakness",
+    "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength this turn. NL ${modID}:Jam."
+  },
+  "${modID}:Tinker": {
+    "NAME": "Tinker",
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade a random card in your hand for the rest of combat.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Upgrade a card in your hand for the rest of combat."
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "PROPER_NAME": "Jam",
+    "NAMES": [
+      "jam"
+    ],
+    "DESCRIPTION": "Loses all effects until unjammed."
+  },
+  {
+    "PROPER_NAME": "Jammed",
+    "NAMES": [
+      "jammed"
+    ],
+    "DESCRIPTION": "Loses all effects. Unjams when played."
+  },
+  {
+    "PROPER_NAME": "Blight",
+    "NAMES": [
+      "blight"
+    ],
+    "DESCRIPTION": "Blighted creatures lose 50 HP when reaching 20 Blight, then lose 20 Blight."
+  },
+  {
+    "PROPER_NAME": "Makeshift",
+    "NAMES": [
+      "makeshift"
+    ],
+    "DESCRIPTION": "Unplayable. Plays itself when drawn, Exhausts itself, and draws 1 card."
+  }
+]

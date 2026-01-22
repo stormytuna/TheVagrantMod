@@ -1,0 +1,7 @@
+{
+  "${modID}:JammedModifier": {
+    "TEXT": [
+      "${modID}:Jammed NL "
+    ]
+  }
+}
