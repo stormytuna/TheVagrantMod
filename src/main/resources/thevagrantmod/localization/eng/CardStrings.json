@@ -31,5 +31,9 @@
   "${modID}:Afflict": {
     "NAME": "Afflict",
     "DESCRIPTION": "Apply !M! Blight."
+  },
+  "${modID}:ExplosiveBolt": {
+    "NAME": "Explosive Bolt",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Jam."
   }
 }
