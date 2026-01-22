@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import thevagrantmod.TheVagrantMod;
@@ -22,6 +23,8 @@ public class Tinker extends BaseCard {
         0
     );
 
+    private static final String UPGRADE_STRING = CardCrawlGame.languagePack.getUIString("ArmamentsAction").TEXT[0];
+
     public Tinker() {
         super(ID, INFO);
         setBlock(3);
@@ -36,8 +39,7 @@ public class Tinker extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
         if (upgraded) {
-            // TODO: Localise, can steal from Armaments
-            addToBot(new SelectCardsInHandAction(1, "Upgrade", x -> x.canUpgrade(), cards -> {
+            addToBot(new SelectCardsInHandAction(1, UPGRADE_STRING, x -> x.canUpgrade(), cards -> {
                 for (AbstractCard card : cards) {
                     if (card.canUpgrade()) {
                         card.upgrade();
