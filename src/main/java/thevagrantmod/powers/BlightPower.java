@@ -57,9 +57,6 @@ public class BlightPower extends BasePower {
                 float a = 0.5f + (0.95f - 0.6f) * blightness;
                 sb.setColor(49f/255f, 42f/255f, 54f/255f, a);
 
-                float healthBarHeight = 22f * Settings.scale;
-                float healthBarOffsetY = -29f * Settings.scale;
-
                 int healthLoss = HEALTH_LOSS;
                 if (__instance.hasPower(IntangiblePower.POWER_ID)) {
                     healthLoss = 1;
@@ -70,6 +67,12 @@ public class BlightPower extends BasePower {
                     blightBarWidth = 0f;
                 }
                 blightBarWidth *= ___targetHealthBarWidth;
+
+                // Maths is slightly different here than in vanilla bars, plus some +1 offsets below
+                // Changed it so the discolouration overlaps better with the vanilla bar
+                // Without it, a pixel was peaking out around the edge, made it look strange
+                float healthBarHeight = 22f * Settings.scale; 
+                float healthBarOffsetY = -29f * Settings.scale;
 
                 if (__instance.currentHealth > 0) {
                     sb.draw(ImageMaster.HEALTH_BAR_L, x - healthBarHeight + blightBarWidth, y + healthBarOffsetY, healthBarHeight, healthBarHeight);
