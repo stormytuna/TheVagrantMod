@@ -1,8 +1,8 @@
 {
-  "${modID}:PowerID": {
-    "NAME": "Ultimate Power",
+  "${modID}:BlightPower": {
+    "NAME": "Blight",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "When you reach 20 Blight, lose 50 HP and then lose 20 Blight."
     ]
   }
 }

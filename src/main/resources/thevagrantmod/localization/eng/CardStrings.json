@@ -27,5 +27,9 @@
   "${modID}:TracerBolt": {
     "NAME": "Tracer Bolt",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
+  },
+  "${modID}:Afflict": {
+    "NAME": "Afflict",
+    "DESCRIPTION": "Apply !M! Blight."
   }
 }
