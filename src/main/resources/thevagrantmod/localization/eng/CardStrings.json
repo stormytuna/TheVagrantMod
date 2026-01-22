@@ -19,5 +19,9 @@
   "${modID}:HonedShot": {
     "NAME": "Honed Shot",
     "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded any number of times."
+  },
+  "${modID}:PreemptiveStrike": {
+    "NAME": "Preemptive Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, draw an additional card."
   }
 }

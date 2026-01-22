@@ -23,6 +23,7 @@ public class Defend extends BaseCard {
     public Defend() {
         super(ID, INFO);
         setBlock(5, 3);
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
