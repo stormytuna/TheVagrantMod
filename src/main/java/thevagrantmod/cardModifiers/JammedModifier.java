@@ -52,14 +52,12 @@ public class JammedModifier extends AbstractCardModifier {
             return new ExprEditor() {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("use")) {
+                    if (m.getClassName().equals(AbstractCard.class.getName()) && m.getMethodName().equals("use")) {
                         m.replace(
-                                "{" +
-                                "  if (" + JammedCardDoNoEffect.class.getName() + ".isJammed(c)) {" +
-                                "    " + JammedCardDoNoEffect.class.getName() + ".unjam(c);" +
-                                "  } else {" +
-                                "    $_=$proceed($$);" +
-                                "  }" +
+                                "if (" + JammedCardDoNoEffect.class.getName() + ".isJammed(c)) {" +
+                                "  " + JammedCardDoNoEffect.class.getName() + ".unjam(c);" +
+                                "} else {" +
+                                "  $proceed($$);" +
                                 "}"
                             ); 
                     }
