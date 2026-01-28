@@ -75,5 +75,9 @@
   "${modID}:Brace": {
     "NAME": "Brace",
     "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+  },
+  "${modID}:FlashPellets": {
+    "NAME": "Flash Pellets",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak to ALL enemies."
   }
 }
