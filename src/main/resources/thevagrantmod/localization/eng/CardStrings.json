@@ -58,14 +58,14 @@
   },
   "${modID}:FlamingBolt": {
     "NAME": "Flaming Bolt",
-    "DESCRIPTION": "Deal !D! damage. NL Next turn, enemy takes !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL At the end of its turn, the enemy takes !D! damage."
   },
   "${modID}:Rummage": {
     "NAME": "Rummage",
     "DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand."
   },
   "${modID}:TaintedSlash": {
-    "NAME": "TaintedSlash",
+    "NAME": "Tainted Slash",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Blight."
   },
   "${modID}:FleetFooted": {
@@ -82,6 +82,19 @@
   },
   "${modID}:Reload": {
     "NAME": "Reload",
-    "DESCRIPTION": "Draw !M! cards. NL Jam."
+    "DESCRIPTION": "Draw !M! cards. NL ${modID}:Jam."
+  },
+  "${modID}:SwiftShot": {
+    "NAME": "Swift Shot",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Exhaust."
+  },
+  "${modID}:Enervate": {
+    "NAME": "Enervate",
+    "DESCRIPTION": "Apply !M! Weak. NL Exhaust."
+  },
+  "${modID}:Putrefy": {
+    "NAME": "Putrefy",
+    "DESCRIPTION": "Apply !M! ${modID}:Blight. NL Exhaust."
   }
 }

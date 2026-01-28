@@ -2,7 +2,7 @@
   "${modID}:BlightPower": {
     "NAME": "Blight",
     "DESCRIPTIONS": [
-      "When you reach 20 Blight, lose 50 HP and then lose 20 Blight."
+      "When the target reaches 20 Blight, it loses 50 HP and then loses 20 Blight."
     ]
   },
   "${modID}:VirulencePower": {
@@ -13,9 +13,9 @@
     ]
   },
   "${modID}:FlamingBoltPower": {
-    "NAME": "Flaming Bolt",
+    "NAME": "Burned",
     "DESCRIPTIONS": [
-      "At the end of your turn, take #b",
+      "At the end of its turn, takes #b",
       " damage."
     ]
   }

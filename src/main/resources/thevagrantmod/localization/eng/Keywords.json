@@ -18,7 +18,7 @@
     "NAMES": [
       "blight"
     ],
-    "DESCRIPTION": "Blighted creatures lose #b50 HP when reaching #b20 Blight, then lose #b20 Blight."
+    "DESCRIPTION": "When a creature reaches #b20 Blight it loses #b50 HP and then loses #b20 Blight."
   },
   {
     "PROPER_NAME": "Makeshift",
