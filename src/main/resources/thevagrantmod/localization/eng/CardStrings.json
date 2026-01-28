@@ -63,5 +63,9 @@
   "${modID}:Rummage": {
     "NAME": "Rummage",
     "DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand."
+  },
+  "${modID}:TaintedSlash": {
+    "NAME": "TaintedSlash",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Blight."
   }
 }
