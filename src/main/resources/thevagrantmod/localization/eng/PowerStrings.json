@@ -11,5 +11,12 @@
       "Whenever you apply #yBlight, apply #b",
       " additional #yBlight."
     ]
+  },
+  "${modID}:FlamingBoltPower": {
+    "NAME": "Flaming Bolt",
+    "DESCRIPTIONS": [
+      "At the end of your turn, take #b",
+      " damage."
+    ]
   }
 }

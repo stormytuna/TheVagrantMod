@@ -55,5 +55,9 @@
   "${modID}:Rangefinding": {
     "NAME": "Rangefinding",
     "DESCRIPTION": "Deal !D! damage 2 times. NL Upgrade 2 random cards in your hand for the rest of combat."
+  },
+  "${modID}:FlamingBolt": {
+    "NAME": "Flaming Bolt",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, enemy takes !D! damage."
   }
 }
