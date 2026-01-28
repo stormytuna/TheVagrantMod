@@ -51,5 +51,9 @@
   "${modID}:WeepingWounds": {
     "NAME": "Weeping Wounds",
     "DESCRIPTION": "Deal !D! damage. NL Apply ${modID}:Blight equal to unblocked damage dealt."
+  },
+  "${modID}:Rangefinding": {
+    "NAME": "Rangefinding",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Upgrade 2 random cards in your hand for the rest of combat."
   }
 }
