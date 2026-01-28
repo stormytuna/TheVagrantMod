@@ -25,6 +25,9 @@ public class BlightPower extends BasePower {
 
     public BlightPower(AbstractCreature owner, int amount) {
         super(ID, TYPE, TURN_BASED, owner, amount);
+        if (amount >= 20) {
+            doBlightHpLoss();
+        }
     }
 
     @Override
@@ -32,17 +35,21 @@ public class BlightPower extends BasePower {
         description = DESCRIPTIONS[0];
     }
 
+    private void doBlightHpLoss() {
+        flash();
+        addToBot(new DamageAction(owner, new DamageInfo(owner, HEALTH_LOSS, DamageType.THORNS)));
+        amount -= STACKS_FOR_HEALTH_LOSS;
+        if (amount <= 0) {
+            addToTop(new RemoveSpecificPowerAction(owner, owner, this));
+        }
+    }
+
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
 
         if (amount >= STACKS_FOR_HEALTH_LOSS) {
-            flash();
-            addToBot(new DamageAction(owner, new DamageInfo(owner, HEALTH_LOSS, DamageType.THORNS)));
-            amount -= STACKS_FOR_HEALTH_LOSS;
-            if (amount <= 0) {
-                addToTop(new RemoveSpecificPowerAction(owner, owner, this));
-            }
+            doBlightHpLoss();
         }
     }
 
