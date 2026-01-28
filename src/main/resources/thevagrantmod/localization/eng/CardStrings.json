@@ -67,5 +67,13 @@
   "${modID}:TaintedSlash": {
     "NAME": "TaintedSlash",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Blight."
+  },
+  "${modID}:FleetFooted": {
+    "NAME": "Fleet-Footed",
+    "DESCRIPTION": "Gain !B! Block. NL Can be Upgraded any number of times."
+  },
+  "${modID}:Brace": {
+    "NAME": "Brace",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
   }
 }
