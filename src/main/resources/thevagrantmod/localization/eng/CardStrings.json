@@ -59,5 +59,9 @@
   "${modID}:FlamingBolt": {
     "NAME": "Flaming Bolt",
     "DESCRIPTION": "Deal !D! damage. NL Next turn, enemy takes !D! damage."
+  },
+  "${modID}:Rummage": {
+    "NAME": "Rummage",
+    "DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand."
   }
 }

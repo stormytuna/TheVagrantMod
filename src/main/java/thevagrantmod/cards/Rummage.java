@@ -1,0 +1,43 @@
+package thevagrantmod.cards;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import thevagrantmod.TheVagrantMod;
+import thevagrantmod.character.TheVagrant;
+import thevagrantmod.util.CardStats;
+
+public class Rummage extends BaseCard {
+    public static final String ID = TheVagrantMod.makeID("Rummage");
+
+    private static final CardStats INFO = new CardStats(
+        TheVagrant.Meta.CARD_COLOR,
+        CardType.ATTACK,
+        CardRarity.COMMON,
+        CardTarget.ENEMY,
+        1
+    );
+
+    public Rummage() {
+        super(ID, INFO);
+        setDamage(5, 2);
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new Rummage();
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        DamageInfo info = new DamageInfo(p, damage);
+        addToBot(new DamageAction(m, info, AttackEffect.SLASH_DIAGONAL));
+        addToBot(new BetterDiscardPileToHandAction(1));
+    }
+}
+
