@@ -100,5 +100,9 @@
   "${modID}:ScrapArmor": {
     "NAME": "Scrap Armor",
     "DESCRIPTION": "Gain !M! *Plated *Armor. NL ${modID}:Jam."
+  },
+  "${modID}:ScrapIronScarecrow": {
+    "NAME": "Scrap-Iron Scarecrow",
+    "DESCRIPTION": "Gain !B! Block. NL At the start of your turn, return this from the discard pile to your hand."
   }
 }
