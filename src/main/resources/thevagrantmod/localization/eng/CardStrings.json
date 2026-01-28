@@ -96,5 +96,9 @@
   "${modID}:Putrefy": {
     "NAME": "Putrefy",
     "DESCRIPTION": "Apply !M! ${modID}:Blight. NL Exhaust."
+  },
+  "${modID}:ScrapArmor": {
+    "NAME": "Scrap Armor",
+    "DESCRIPTION": "Gain !M! *Plated *Armor. NL ${modID}:Jam."
   }
 }
