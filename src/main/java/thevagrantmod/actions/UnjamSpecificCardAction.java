@@ -19,6 +19,9 @@ public class UnjamSpecificCardAction extends AbstractGameAction {
     public void update() {
         if (duration == startDuration) {
             CardModifierManager.removeModifiersById(card, JammedModifier.ID, false);
+
+            card.target = JamSpecificCardAction.Fields.oldCardTarget.get(card);
+
             isDone = true;
         }
 
