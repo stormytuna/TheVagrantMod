@@ -37,7 +37,7 @@ public class BlightPower extends BasePower {
 
     private void doBlightHpLoss() {
         flash();
-        addToBot(new DamageAction(owner, new DamageInfo(owner, HEALTH_LOSS, DamageType.THORNS)));
+        addToBot(new DamageAction(owner, new DamageInfo(owner, HEALTH_LOSS, DamageType.HP_LOSS)));
         amount -= STACKS_FOR_HEALTH_LOSS;
         if (amount <= 0) {
             addToTop(new RemoveSpecificPowerAction(owner, owner, this));
