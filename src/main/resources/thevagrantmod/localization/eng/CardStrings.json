@@ -79,5 +79,9 @@
   "${modID}:FlashPellets": {
     "NAME": "Flash Pellets",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak to ALL enemies."
+  },
+  "${modID}:Reload": {
+    "NAME": "Reload",
+    "DESCRIPTION": "Draw !M! cards. NL Jam."
   }
 }
