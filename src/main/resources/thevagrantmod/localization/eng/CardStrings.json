@@ -112,5 +112,9 @@
   "${modID}:CoveringFire": {
     "NAME": "Covering Fire",
     "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL The next Skill you play costs 0."
+  },
+  "${modID}:PinDown": {
+    "NAME": "Pin Down",
+    "DESCRIPTION": "Deal !D! damage. NL Gain Block equal to unblocked damage dealt."
   }
 }
