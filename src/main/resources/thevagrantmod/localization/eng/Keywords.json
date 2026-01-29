@@ -4,14 +4,14 @@
     "NAMES": [
       "jam"
     ],
-    "DESCRIPTION": "Card becomes Jammed. Jammed cards have no effect and unjam when played."
+    "DESCRIPTION": "Card becomes jammed. Jammed cards have no effect when played and then Unjam."
   },
   {
     "PROPER_NAME": "Jammed",
     "NAMES": [
       "jammed"
     ],
-    "DESCRIPTION": "This card has no effect. Unjams when played."
+    "DESCRIPTION": "This card has no effect when played and then Unjams."
   },
   {
     "PROPER_NAME": "Blight",

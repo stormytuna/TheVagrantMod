@@ -140,5 +140,10 @@
   "${modID}:Replicate": {
     "NAME": "Replicate",
     "DESCRIPTION": "Choose a card. Add a copy of that card to your hand. NL Exhaust."
+  },
+  "${modID}:Plague": {
+    "NAME": "Plague",
+    "DESCRIPTION": "Apply !M! Blight to ALL enemies X times.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Blight to ALL enemies X+1 times."
   }
 }

@@ -18,7 +18,7 @@ public class WeepingWounds extends BaseCard {
 
     private static final CardStats INFO = new CardStats(
         TheVagrant.Meta.CARD_COLOR,
-        CardType.SKILL,
+        CardType.ATTACK,
         CardRarity.RARE,
         CardTarget.ENEMY,
         1
