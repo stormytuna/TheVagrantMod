@@ -18,5 +18,13 @@
       "At the end of its turn, takes #b",
       " damage."
     ]
+  },
+  "${modID}:CoveringFirePower": {
+    "NAME": "Covering Fire",
+    "DESCRIPTIONS": [
+      "Ignore energy cost on the next #ySkill you play.",
+      "Ignore energy cost on the next #b",
+      " #ySkills you play."
+    ]
   }
 }

@@ -108,5 +108,9 @@
   "${modID}:BallisticShot": {
     "NAME": "Ballistic Shot",
     "DESCRIPTION": "Deal !D! damage. NL Double this card's damage this combat. NL Increase this card's cost by 1 this combat."
+  },
+  "${modID}:CoveringFire": {
+    "NAME": "Covering Fire",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL The next Skill you play costs 0."
   }
 }
