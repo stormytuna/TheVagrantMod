@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +25,14 @@ public class JammedModifier extends AbstractCardModifier {
     public static final String ID = TheVagrantMod.makeID("JammedModifier");
 
     private static final UIStrings STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+
+    public static boolean canJam(AbstractCard card) {
+        if (CardModifierManager.hasModifier(card, ID) || card.type == CardType.STATUS || card.type == CardType.CURSE || card.cost == -2) {
+            return false;
+        }
+
+        return true;
+    }
 
     @Override
     public String identifier(AbstractCard card) {
@@ -74,8 +83,8 @@ public class JammedModifier extends AbstractCardModifier {
         }
     }
 
-    // TODO: Might not work with beta arts?
     @SpirePatch2(clz = AbstractCard.class, method = "renderPortrait")
+    @SpirePatch2(clz = AbstractCard.class, method = "renderJokePortrait")
     public static class JammedGrayscale {
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {

@@ -22,6 +22,11 @@ public class JamSpecificCardAction extends AbstractGameAction {
     @Override
     public void update() {
         if (duration == startDuration) {
+            if (!JammedModifier.canJam(card)) {
+                isDone = true;
+                return;
+            }
+
             CardModifierManager.addModifier(card, new JammedModifier());
 
             Fields.oldCardTarget.set(card, card.target);
