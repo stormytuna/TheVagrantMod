@@ -116,5 +116,9 @@
   "${modID}:PinDown": {
     "NAME": "Pin Down",
     "DESCRIPTION": "Deal !D! damage. NL Gain Block equal to unblocked damage dealt."
+  },
+  "${modID}:HunkerDown": {
+    "NAME": "Hunker Down",
+    "DESCRIPTION": "Gain !B! Block. NL Block is not removed at the start of your next 2 turns. NL ${modID}:Jam."
   }
 }
