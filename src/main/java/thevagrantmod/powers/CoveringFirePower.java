@@ -46,9 +46,7 @@ public class CoveringFirePower extends BasePower {
     public static class MakeSkillsFree {
         @SpirePostfixPatch
         public static boolean patch(AbstractCard __instance, boolean __result) {
-            boolean inRoom = AbstractDungeon.player != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT;
-            boolean canApplyPower = AbstractDungeon.player.hasPower(ID) && __instance.type == CardType.SKILL;
-            if (inRoom && canApplyPower) {
+            if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && AbstractDungeon.player.hasPower(ID) && __instance.type == CardType.SKILL) {
                 return true;
             }
 
