@@ -39,7 +39,7 @@ public class ScrapIronScarecrow extends BaseCard {
         addToBot(new GainBlockAction(p, block));
     }
 
-    @SpirePatch2(clz = AbstractPlayer.class, method = "applyStartOfTurnRelics")
+    @SpirePatch2(clz = AbstractPlayer.class, method = "applyStartOfTurnPostDrawRelics")
     public static class AddBackScrapIronScarecrow {
         @SpirePostfixPatch
         public static void patch(AbstractPlayer __instance) {
