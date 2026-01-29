@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
+import thevagrantmod.effects.JamCardEffect;
 
 public class JamAllCardsInHandAction extends AbstractGameAction {
     public JamAllCardsInHandAction() {
@@ -26,6 +27,8 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
 
                 JamSpecificCardAction.Fields.oldCardTarget.set(c, c.target);
                 c.target = CardTarget.SELF;
+
+                AbstractDungeon.effectList.add(new JamCardEffect(c));
             }
 
             isDone = true;

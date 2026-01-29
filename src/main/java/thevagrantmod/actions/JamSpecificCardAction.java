@@ -7,9 +7,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
+import thevagrantmod.effects.JamCardEffect;
 
 public class JamSpecificCardAction extends AbstractGameAction {
     private AbstractCard card;
@@ -32,7 +34,7 @@ public class JamSpecificCardAction extends AbstractGameAction {
             Fields.oldCardTarget.set(card, card.target);
             card.target = CardTarget.SELF;
 
-            isDone = true;
+            AbstractDungeon.effectList.add(new JamCardEffect(card));
         }
 
         tickDuration();
