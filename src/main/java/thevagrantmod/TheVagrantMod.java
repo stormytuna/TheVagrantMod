@@ -10,6 +10,7 @@ import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import thevagrantmod.cards.BaseCard;
 import thevagrantmod.character.TheVagrant;
+import thevagrantmod.shaders.BetterGrayscaleShader;
 import thevagrantmod.util.GeneralUtils;
 import thevagrantmod.util.KeywordInfo;
 import thevagrantmod.util.Sounds;
@@ -91,6 +92,8 @@ public class TheVagrantMod implements
         //If you want to set up a config panel, that will be done here.
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        BetterGrayscaleShader.loadShader();
     }
 
     /*----------Localization----------*/
@@ -183,6 +186,8 @@ public class TheVagrantMod implements
     @Override
     public void receiveAddAudio() {
         loadAudio(Sounds.class);
+
+        BaseMod.addAudio(makeID("JAM"), audioPath("jam.mp3"));
     }
 
     private static final String[] AUDIO_EXTENSIONS = { ".ogg", ".wav", ".mp3" }; //There are more valid types, but not really worth checking them all here

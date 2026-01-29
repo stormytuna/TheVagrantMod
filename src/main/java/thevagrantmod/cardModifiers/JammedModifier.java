@@ -2,13 +2,11 @@ package thevagrantmod.cardModifiers;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -26,6 +24,8 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import thevagrantmod.TheVagrantMod;
 import thevagrantmod.actions.UnjamSpecificCardAction;
+import thevagrantmod.effects.JamCardEffect;
+import thevagrantmod.shaders.BetterGrayscaleShader;
 
 public class JammedModifier extends AbstractCardModifier {
     public static final String ID = TheVagrantMod.makeID("JammedModifier");
@@ -107,7 +107,7 @@ public class JammedModifier extends AbstractCardModifier {
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
             if (CardModifierManager.hasModifier(__instance, ID)) {
-                ShaderHelper.setShader(sb, ShaderHelper.Shader.GRAYSCALE);
+                BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance));
             }
         }
 
