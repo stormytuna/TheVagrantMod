@@ -143,7 +143,11 @@
   },
   "${modID}:Plague": {
     "NAME": "Plague",
-    "DESCRIPTION": "Apply !M! Blight to ALL enemies X times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Blight to ALL enemies X+1 times."
+    "DESCRIPTION": "Apply !M! ${modID}:Blight to ALL enemies X times.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${modID}:Blight to ALL enemies X+1 times."
+  },
+  "${modID}:CreepingInfection": {
+    "NAME": "Creeping Infection",
+    "DESCRIPTION": "Apply !M! ${modID}:Blight. NL Enemy gains !M! ${modID}:Blight at the end of each of its turns. NL Exhaust."
   }
 }

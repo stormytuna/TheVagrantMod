@@ -26,5 +26,12 @@
       "Ignore energy cost on the next #b",
       " #ySkills you play."
     ]
+  },
+  "${modID}:CreepingInfectionPower": {
+    "NAME": "Creeping Infection",
+    "DESCRIPTIONS": [
+      "At the end of each of its turn, gains #b",
+      " #yBlight."
+    ]
   }
 }
