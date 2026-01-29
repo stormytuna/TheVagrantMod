@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import thevagrantmod.TheVagrantMod;
+import thevagrantmod.actions.ChangeCostAction;
 import thevagrantmod.character.TheVagrant;
 import thevagrantmod.util.CardStats;
 
@@ -24,7 +25,7 @@ public class BallisticShot extends BaseCard {
 
     public BallisticShot() {
         super(ID, INFO);
-        setDamage(8, 10);
+        setDamage(8, 2);
     }
 
     @Override
@@ -35,8 +36,9 @@ public class BallisticShot extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
+        addToBot(new ChangeCostAction(this, 1));
+
         upgradeDamage(baseDamage);
-        updateCost(1);
     }
 }
 
