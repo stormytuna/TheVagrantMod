@@ -1,12 +1,19 @@
 package thevagrantmod.cardModifiers;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ShaderHelper;
@@ -24,6 +31,14 @@ public class JammedModifier extends AbstractCardModifier {
     public static final String ID = TheVagrantMod.makeID("JammedModifier");
 
     private static final UIStrings STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+
+    public static boolean canJam(AbstractCard card) {
+        if (CardModifierManager.hasModifier(card, ID) || card.type == CardType.STATUS || card.type == CardType.CURSE || card.cost == -2) {
+            return false;
+        }
+
+        return true;
+    }
 
     @Override
     public String identifier(AbstractCard card) {
@@ -74,8 +89,20 @@ public class JammedModifier extends AbstractCardModifier {
         }
     }
 
-    // TODO: Might not work with beta arts?
+    @SpirePatch2(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
+    public static class JammedCardNoExhaust {
+        @SpirePostfixPatch
+        public static void patch(AbstractCard ___targetCard, @ByRef boolean[] ___exhaustCard) {
+            TheVagrantMod.logger.info("Outside");
+            if (CardModifierManager.hasModifier(___targetCard, ID)) {
+                TheVagrantMod.logger.info("Inside");
+                ___exhaustCard[0] = false;
+            }
+        }
+    }
+
     @SpirePatch2(clz = AbstractCard.class, method = "renderPortrait")
+    @SpirePatch2(clz = AbstractCard.class, method = "renderJokePortrait")
     public static class JammedGrayscale {
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
