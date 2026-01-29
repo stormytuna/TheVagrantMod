@@ -38,7 +38,7 @@ public class TaintedSlash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         DamageInfo info = new DamageInfo(p, damage);
-        addToBot(new DamageAction(m, info, AttackEffect.SLASH_HEAVY));
+        addToBot(new DamageAction(m, info, AttackEffect.SLASH_DIAGONAL));
         addToBot(new ApplyPowerAction(m, p, new BlightPower(m, magicNumber)));
     }
 }

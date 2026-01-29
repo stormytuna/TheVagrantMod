@@ -120,5 +120,13 @@
   "${modID}:HunkerDown": {
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain !B! Block. NL Block is not removed at the start of your next 2 turns. NL ${modID}:Jam."
+  },
+  "${modID}:Innovate": {
+    "NAME": "Innovate",
+    "DESCRIPTION": "Gain !M! Strength and Dexterity. NL ${modID}:Jam."
+  },
+  "${modID}:DrainingTouch": {
+    "NAME": "Draining Touch",
+    "DESCRIPTION": "Enemy loses !M! Strength. NL Gain !M! Strength. NL Exhaust."
   }
 }

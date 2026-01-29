@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
+import com.megacrit.cardcrawl.relics.BurningBlood;
 import thevagrantmod.cards.Defend;
 import thevagrantmod.cards.ExploitWeakness;
 import thevagrantmod.cards.Strike;
@@ -171,7 +172,7 @@ public class TheVagrant extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(PrismaticShard.ID);
+        retVal.add(BurningBlood.ID);
 
         return retVal;
     }

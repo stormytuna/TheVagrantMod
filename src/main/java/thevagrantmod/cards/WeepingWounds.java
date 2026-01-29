@@ -36,7 +36,7 @@ public class WeepingWounds extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageCallbackAction(m, new DamageInfo(p, damage), AttackEffect.FIRE, unblockedDamage -> {
+        addToBot(new DamageCallbackAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HEAVY, unblockedDamage -> {
             if (unblockedDamage > 0) {
                 addToBot(new ApplyPowerAction(m, p, new BlightPower(m, unblockedDamage)));
             }
