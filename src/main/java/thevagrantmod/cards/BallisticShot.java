@@ -34,7 +34,6 @@ public class BallisticShot extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // TODO: Make sure this works! Need to do localisation as well!!
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
         upgradeDamage(baseDamage);
         updateCost(1);
