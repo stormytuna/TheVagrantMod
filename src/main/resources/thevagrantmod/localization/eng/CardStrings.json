@@ -136,5 +136,9 @@
   "${modID}:Blueprint": {
     "NAME": "Blueprint",
     "DESCRIPTION": "Draw !M! cards and Upgrade them for the rest of combat."
+  },
+  "${modID}:Replicate": {
+    "NAME": "Replicate",
+    "DESCRIPTION": "Choose a card. Add a copy of that card to your hand. NL Exhaust."
   }
 }
