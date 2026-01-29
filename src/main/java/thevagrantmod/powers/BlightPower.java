@@ -65,7 +65,7 @@ public class BlightPower extends BasePower {
                 AbstractPower blight = __instance.getPower(ID);
                 float blightness = 1f - (float)(STACKS_FOR_HEALTH_LOSS - blight.amount) / (float)(STACKS_FOR_HEALTH_LOSS);
                 // lerp = start + (end - start) * t
-                float a = 0.5f + (0.95f - 0.6f) * blightness;
+                float a = 0.5f + (0.95f - 0.5f) * blightness;
                 sb.setColor(49f/255f, 42f/255f, 54f/255f, a);
 
                 int healthLoss = HEALTH_LOSS;
