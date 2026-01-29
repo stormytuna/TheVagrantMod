@@ -18,7 +18,9 @@ public class JamSpecificCardAction extends AbstractGameAction {
 
     public JamSpecificCardAction(AbstractCard card) {
         this.card = card;
-        duration = startDuration = Settings.ACTION_DUR_FAST;
+        setValues(AbstractDungeon.player, AbstractDungeon.player, amount);
+        actionType = ActionType.EXHAUST;
+        duration = startDuration = Settings.ACTION_DUR_MED;
     }
 
     @Override
@@ -35,6 +37,13 @@ public class JamSpecificCardAction extends AbstractGameAction {
             card.target = CardTarget.SELF;
 
             AbstractDungeon.effectList.add(new JamCardEffect(card));
+            if (AbstractDungeon.player.hoveredCard == card) {
+                AbstractDungeon.player.releaseCard();
+            }
+            AbstractDungeon.actionManager.removeFromQueue(card);
+            card.unhover();
+            card.untip();
+            card.stopGlowing();
         }
 
         tickDuration();
