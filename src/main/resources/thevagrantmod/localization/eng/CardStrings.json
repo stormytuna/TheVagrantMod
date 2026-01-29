@@ -104,5 +104,9 @@
   "${modID}:ScrapIronScarecrow": {
     "NAME": "Scrap-Iron Scarecrow",
     "DESCRIPTION": "Gain !B! Block. NL At the start of your turn, return this from the discard pile to your hand."
+  },
+  "${modID}:BallisticShot": {
+    "NAME": "Ballistic Shot",
+    "DESCRIPTION": "Deal !D! damage. NL Double this card's damage this combat. NL Increase this card's cost by 1 this combat."
   }
 }
