@@ -132,5 +132,9 @@
   "${modID}:ClusterBolt": {
     "NAME": "Cluster Bolt",
     "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times. NL ${modID}:Jam ALL cards in your hand."
+  },
+  "${modID}:Blueprint": {
+    "NAME": "Blueprint",
+    "DESCRIPTION": "Draw !M! cards and Upgrade them for the rest of combat."
   }
 }
