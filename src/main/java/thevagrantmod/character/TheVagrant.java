@@ -51,10 +51,10 @@ public class TheVagrant extends CustomPlayer {
         @SpireEnum
         public static PlayerClass THE_VAGRANT;
 
-        @SpireEnum(name = "CHARACTER_GRAY_COLOR")
+        @SpireEnum(name = "VAGRANT_ORANGE_COLOR")
         public static AbstractCard.CardColor CARD_COLOR;
 
-        @SpireEnum(name = "CHARACTER_GRAY_COLOR")
+        @SpireEnum(name = "VAGRANT_ORANGE_COLOR")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
 
         //Character select images
