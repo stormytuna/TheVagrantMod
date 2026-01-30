@@ -3,16 +3,18 @@ package thevagrantmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
+import thevagrantmod.effects.JamCardEffect;
 
 public class UnjamSpecificCardAction extends AbstractGameAction {
     private AbstractCard card;
 
     public UnjamSpecificCardAction(AbstractCard card) {
         this.card = card;
-        duration = startDuration = Settings.ACTION_DUR_FAST;
+        duration = startDuration = Settings.ACTION_DUR_MED;
     }
 
     @Override
@@ -22,7 +24,15 @@ public class UnjamSpecificCardAction extends AbstractGameAction {
 
             card.target = JamSpecificCardAction.Fields.oldCardTarget.get(card);
 
-            isDone = true;
+            // TODO: Centralise!!
+            AbstractDungeon.effectList.add(new JamCardEffect(card, true));
+            if (AbstractDungeon.player.hoveredCard == card) {
+                AbstractDungeon.player.releaseCard();
+            }
+            AbstractDungeon.actionManager.removeFromQueue(card);
+            card.unhover();
+            card.untip();
+            card.stopGlowing();
         }
 
         tickDuration();

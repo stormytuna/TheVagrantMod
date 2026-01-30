@@ -1,5 +1,9 @@
 package thevagrantmod.actions;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Stack;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
@@ -11,8 +15,12 @@ import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
 
 public class JamAllCardsInHandAction extends AbstractGameAction {
+    private Stack<AbstractCard> cardsToJam = new Stack<>();
+    private float delayBetweenJams;
+    private float nextJamTime;
+
     public JamAllCardsInHandAction() {
-        duration = startDuration = Settings.ACTION_DUR_FAST;
+        duration = startDuration = Settings.ACTION_DUR_LONG;
     }
 
     @Override
@@ -23,15 +31,36 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
                     continue;
                 }
 
-                CardModifierManager.addModifier(c, new JammedModifier());
-
-                JamSpecificCardAction.Fields.oldCardTarget.set(c, c.target);
-                c.target = CardTarget.SELF;
-
-                AbstractDungeon.effectList.add(new JamCardEffect(c));
+                cardsToJam.add(c);
             }
 
-            isDone = true;
+            if (cardsToJam.size() == 0) {
+                isDone = true;
+                return;
+            }
+
+            Collections.shuffle(cardsToJam);
+
+            // * 0.8 to ensure we always have a little extra buffer at the end of jamming all our cards
+            delayBetweenJams = (startDuration * 0.8f) / cardsToJam.size();
+            nextJamTime = startDuration - delayBetweenJams;
+        }
+
+        if (duration <= nextJamTime) {
+            nextJamTime -= delayBetweenJams;
+
+            if (cardsToJam.size() <= 0) {
+                isDone = true;
+                return;
+            }
+
+            AbstractCard c = cardsToJam.pop();
+            CardModifierManager.addModifier(c, new JammedModifier());
+
+            JamSpecificCardAction.Fields.oldCardTarget.set(c, c.target);
+            c.target = CardTarget.SELF;
+
+            AbstractDungeon.effectList.add(new JamCardEffect(c));
         }
 
         tickDuration();

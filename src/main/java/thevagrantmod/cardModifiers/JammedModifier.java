@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.actions.unique.UndoAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -107,7 +108,7 @@ public class JammedModifier extends AbstractCardModifier {
 
         @SpirePrefixPatch
         public static void patch1(AbstractCard ___targetCard, float ___duration) {
-            if (CardModifierManager.hasModifier(___targetCard, ID) && ___duration == 0.15f) {
+            if (CardModifierManager.hasModifier(___targetCard, ID) && ___duration == 0.15f && ___targetCard.type == CardType.POWER) {
                 ___targetCard.type = CardType.SKILL;
                 undoUnpowering =  true;
             }
@@ -125,17 +126,21 @@ public class JammedModifier extends AbstractCardModifier {
     @SpirePatch2(clz = AbstractCard.class, method = "renderPortrait")
     @SpirePatch2(clz = AbstractCard.class, method = "renderJokePortrait")
     public static class JammedGrayscale {
+        private static boolean undoGrayShader = false;
+
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
-            if (CardModifierManager.hasModifier(__instance, ID)) {
+            if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
                 BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance));
+                undoGrayShader = true;
             }
         }
 
         @SpirePostfixPatch
         public static void unapplyShader(AbstractCard __instance, SpriteBatch sb) {
-            if (CardModifierManager.hasModifier(__instance, ID)) {
+            if (undoGrayShader) {
                 ShaderHelper.setShader(sb, ShaderHelper.Shader.DEFAULT);
+                undoGrayShader = false;
             }
         }
     }
