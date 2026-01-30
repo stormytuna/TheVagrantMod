@@ -188,6 +188,7 @@ public class TheVagrantMod implements
         loadAudio(Sounds.class);
 
         BaseMod.addAudio(makeID("JAM"), audioPath("jam.mp3"));
+        BaseMod.addAudio(makeID("UNJAM"), audioPath("unjam.mp3"));
     }
 
     private static final String[] AUDIO_EXTENSIONS = { ".ogg", ".wav", ".mp3" }; //There are more valid types, but not really worth checking them all here
