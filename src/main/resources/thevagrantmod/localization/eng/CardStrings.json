@@ -175,5 +175,9 @@
   "${modID}:BaitAndSwitch": {
     "NAME": "Bait and Switch",
     "DESCRIPTION": "Gain !B! Block. NL Shuffle !M! *Trip *Charge into your draw pile."
+  },
+  "${modID}:BountyHunting": {
+    "NAME": "Bounty Hunting",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain an additional card reward at the end of combat. NL Exhaust."
   }
 }

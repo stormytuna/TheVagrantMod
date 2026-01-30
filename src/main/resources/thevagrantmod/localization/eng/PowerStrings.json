@@ -63,5 +63,13 @@
       "Whenever you apply #yBlight, gain #b",
       " #yBlock."
     ]
+  },
+  "${modID}:BountyHuntingPower": {
+    "NAME": "Bounty Claimed",
+    "DESCRIPTIONS": [
+      "Gain an additional card reward at the end of combat.",
+      "Gain an additional #b",
+      " card rewards at the end of combat."
+    ]
   }
 }
