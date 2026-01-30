@@ -130,13 +130,37 @@ public class JammedModifier extends AbstractCardModifier {
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderPortrait")
     @SpirePatch2(clz = AbstractCard.class, method = "renderJokePortrait")
-    public static class JammedGrayscale {
+    public static class JammedGrayscalePortrait {
         private static boolean undoGrayShader = false;
 
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
             if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
                 BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance));
+                undoGrayShader = true;
+            }
+        }
+
+        @SpirePostfixPatch
+        public static void unapplyShader(AbstractCard __instance, SpriteBatch sb) {
+            if (undoGrayShader) {
+                ShaderHelper.setShader(sb, ShaderHelper.Shader.DEFAULT);
+                undoGrayShader = false;
+            }
+        }
+    }
+
+    @SpirePatch2(clz = AbstractCard.class, method = "renderCardBg")
+    @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
+    @SpirePatch2(clz = AbstractCard.class, method = "renderPortraitFrame")
+    @SpirePatch2(clz = AbstractCard.class, method = "renderBannerImage")
+    public static class JammedGrayscaleCardBits {
+        private static boolean undoGrayShader = false;
+
+        @SpirePrefixPatch
+        public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
+            if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
+                BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance) * 0.7f);
                 undoGrayShader = true;
             }
         }
