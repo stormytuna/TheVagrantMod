@@ -163,5 +163,9 @@
   "${modID}:WallOfThorns": {
     "NAME": "Wall of Thorns",
     "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, apply !M! ${modID}:Blight."
+  },
+  "${modID}:Parasitize": {
+    "NAME": "Parasitize",
+    "DESCRIPTION": "Whenever you apply ${modID}:Blight, gain !M! Block."
   }
 }

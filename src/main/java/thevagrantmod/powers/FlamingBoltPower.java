@@ -13,7 +13,7 @@ public class FlamingBoltPower extends BasePower {
     public static final String ID = TheVagrantMod.makeID("FlamingBoltPower");
 
     private static final PowerType TYPE = PowerType.DEBUFF;
-    private static final boolean TURN_BASED = true;
+    private static final boolean TURN_BASED = false;
 
     public FlamingBoltPower(AbstractCreature owner, int amount) {
         super(ID, TYPE, TURN_BASED, owner, amount);
