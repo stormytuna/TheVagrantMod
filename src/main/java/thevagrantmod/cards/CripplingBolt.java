@@ -17,8 +17,8 @@ import thevagrantmod.actions.JamSpecificCardAction;
 import thevagrantmod.character.TheVagrant;
 import thevagrantmod.util.CardStats;
 
-public class ExploitWeakness extends BaseCard {
-    public static final String ID = TheVagrantMod.makeID("ExploitWeakness");
+public class CripplingBolt extends BaseCard {
+    public static final String ID = TheVagrantMod.makeID("CripplingBolt");
 
     private static final CardStats INFO = new CardStats(
         TheVagrant.Meta.CARD_COLOR,
@@ -28,7 +28,7 @@ public class ExploitWeakness extends BaseCard {
         1
     );
 
-    public ExploitWeakness() {
+    public CripplingBolt() {
         super(ID, INFO);
         setDamage(11, 2);
         setMagic(2, 1);
@@ -36,7 +36,7 @@ public class ExploitWeakness extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new ExploitWeakness();
+        return new CripplingBolt();
     }
 
     @Override

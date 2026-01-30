@@ -6,7 +6,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import thevagrantmod.cards.Defend;
-import thevagrantmod.cards.ExploitWeakness;
+import thevagrantmod.cards.CripplingBolt;
 import thevagrantmod.cards.Strike;
 import thevagrantmod.cards.Tinker;
 
@@ -24,7 +24,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
@@ -162,7 +161,7 @@ public class TheVagrant extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(ExploitWeakness.ID);
+        retVal.add(CripplingBolt.ID);
         retVal.add(Tinker.ID);
 
         return retVal;

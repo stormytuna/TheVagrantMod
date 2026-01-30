@@ -7,8 +7,8 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "${modID}:ExploitWeakness": {
-    "NAME": "Exploit Weakness",
+  "${modID}:CripplingBolt": {
+    "NAME": "Crippling Bolt",
     "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength this turn. NL ${modID}:Jam."
   },
   "${modID}:Tinker": {
