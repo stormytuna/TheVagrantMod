@@ -41,5 +41,13 @@
       "At the start of your turn, put #b",
       " cards from your discard pile into your hand."
     ]
+  },
+  "${modID}:MaintenancePower": {
+    "NAME": "Maintenance",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Upgrade a random card in your hand for the rest of combat.",
+      "At the start of your turn, Upgrade #b",
+      " random cards in your hand for the rest of combat."
+    ]
   }
 }

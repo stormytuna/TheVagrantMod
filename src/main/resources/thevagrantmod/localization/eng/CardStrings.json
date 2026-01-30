@@ -154,5 +154,10 @@
     "NAME": "Reclamation",
     "DESCRIPTION": "At the start of your turn, put a card from your discard pile into your hand.",
     "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, put a card from your discard pile into your hand."
+  },
+  "${modID}:Maintenance": {
+    "NAME": "Maintenance",
+    "DESCRIPTION": "At the start of your turn, Upgrade a random card in your hand for the rest of combat.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, Upgrade 2 random cards in your hand for the rest of combat."
   }
 }
