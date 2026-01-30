@@ -1,6 +1,7 @@
 package thevagrantmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -64,8 +65,7 @@ public class BlightPower extends BasePower {
             if (__instance.hasPower(ID)) {
                 AbstractPower blight = __instance.getPower(ID);
                 float blightness = 1f - (float)(STACKS_FOR_HEALTH_LOSS - blight.amount) / (float)(STACKS_FOR_HEALTH_LOSS);
-                // lerp = start + (end - start) * t
-                float a = 0.5f + (0.95f - 0.5f) * blightness;
+                float a = MathUtils.lerp(0.5f, 0.95f, blightness);
                 sb.setColor(49f/255f, 42f/255f, 54f/255f, a);
 
                 int healthLoss = HEALTH_LOSS;
