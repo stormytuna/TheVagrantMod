@@ -1,5 +1,7 @@
 package thevagrantmod.cardModifiers;
 
+import java.time.Duration;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
@@ -93,10 +95,29 @@ public class JammedModifier extends AbstractCardModifier {
     public static class JammedCardNoExhaust {
         @SpirePostfixPatch
         public static void patch(AbstractCard ___targetCard, @ByRef boolean[] ___exhaustCard) {
-            TheVagrantMod.logger.info("Outside");
             if (CardModifierManager.hasModifier(___targetCard, ID)) {
-                TheVagrantMod.logger.info("Inside");
                 ___exhaustCard[0] = false;
+            }
+        }
+    }
+
+    @SpirePatch2(clz = UseCardAction.class, method = "update")
+    public static class JammedPowerNoRemove {
+        private static boolean undoUnpowering = false;
+
+        @SpirePrefixPatch
+        public static void patch1(AbstractCard ___targetCard, float ___duration) {
+            if (CardModifierManager.hasModifier(___targetCard, ID) && ___duration == 0.15f) {
+                ___targetCard.type = CardType.SKILL;
+                undoUnpowering =  true;
+            }
+        }
+
+        @SpirePostfixPatch
+        public static void patch2(AbstractCard ___targetCard) {
+            if (undoUnpowering) {
+                ___targetCard.type = CardType.POWER;
+                undoUnpowering = false;
             }
         }
     }

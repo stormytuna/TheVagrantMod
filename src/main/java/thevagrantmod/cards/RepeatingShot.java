@@ -37,7 +37,12 @@ public class RepeatingShot extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(m, damage), AttackEffect.BLUNT_LIGHT));
-        addToBot(new MakeTempCardInHandAction(makeStatEquivalentCopy()));
+
+        AbstractCard card = makeStatEquivalentCopy();
+        card.cost = 1;
+        card.costForTurn = 1;
+        card.isCostModifiedForTurn = false;
+        addToBot(new MakeTempCardInHandAction(card));
     }
 }
 
