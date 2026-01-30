@@ -2,11 +2,14 @@ package thevagrantmod.effects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import thevagrantmod.TheVagrantMod;
@@ -37,7 +40,12 @@ public class JamCardEffect extends AbstractGameEffect {
 
         this.duration -= Gdx.graphics.getDeltaTime();
 
-        // TODO: Maybe some fancy particles?
+        if (!Settings.DISABLE_EFFECTS) {
+            float spawnX = c.current_x + (MathUtils.random(-85f, 85f) * Settings.scale);
+            float spawnY = c.current_y + (MathUtils.random(-110f, 110f) * Settings.scale);
+            JamSparkEffect particle = new JamSparkEffect(spawnX, spawnY);
+            AbstractDungeon.topLevelEffectsQueue.add(particle);
+        }
 
         if (duration <= BEGIN_GRAY_FADEOUT) {
             float grayness = 1f - (duration / BEGIN_GRAY_FADEOUT);
