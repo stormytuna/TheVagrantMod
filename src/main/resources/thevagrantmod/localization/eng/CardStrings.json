@@ -167,5 +167,13 @@
   "${modID}:Parasitize": {
     "NAME": "Parasitize",
     "DESCRIPTION": "Whenever you apply ${modID}:Blight, gain !M! Block."
+  },
+  "${modID}:TripCharge": {
+    "NAME": "Trip Charge",
+    "DESCRIPTION": "${modID}:Trap. NL Deal !D! damage to the enemy with the least HP."
+  },
+  "${modID}:BaitAndSwitch": {
+    "NAME": "Bait and Switch",
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle !M! *Trip *Charge into your draw pile."
   }
 }

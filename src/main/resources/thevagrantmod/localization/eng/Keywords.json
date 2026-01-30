@@ -21,9 +21,9 @@
     "DESCRIPTION": "When a creature reaches #b20 Blight it loses #b50 HP and then loses #b20 Blight."
   },
   {
-    "PROPER_NAME": "Makeshift",
+    "PROPER_NAME": "Trap",
     "NAMES": [
-      "makeshift"
+      "trap"
     ],
     "DESCRIPTION": "Unplayable. Plays itself when drawn, Exhausts itself, and draws 1 card."
   },
