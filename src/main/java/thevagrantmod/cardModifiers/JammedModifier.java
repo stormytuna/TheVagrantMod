@@ -102,20 +102,25 @@ public class JammedModifier extends AbstractCardModifier {
         }
     }
 
-    @SpirePatch2(clz = UseCardAction.class, method = "update")
-    public static class JammedPowerNoRemove {
-        private static boolean undoUnpowering = false;
-
-        @SpirePrefixPatch
-        public static void patch1(AbstractCard ___targetCard, float ___duration) {
-            if (CardModifierManager.hasModifier(___targetCard, ID) && ___duration == 0.15f && ___targetCard.type == CardType.POWER) {
+    // Making it a skill in ctor as UseCardAction is in the action queue *after* our UnjamSpecificCardAction,
+    //   so would require weird hacks to remember it was jammed
+    @SpirePatch2(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
+    public static class JammedPowerToSkillSoItDoesntGetEaten {
+        @SpirePostfixPatch
+        public static void patch(AbstractCard  ___targetCard) {
+            if (CardModifierManager.hasModifier(___targetCard, ID) && ___targetCard.type == CardType.POWER) {
                 ___targetCard.type = CardType.SKILL;
-                undoUnpowering =  true;
+                JammedPowerBePowerAgain.undoUnpowering = true;
             }
         }
+    }
+
+    @SpirePatch2(clz = UseCardAction.class, method = "update")
+    public static class JammedPowerBePowerAgain {
+        private static boolean undoUnpowering = false;
 
         @SpirePostfixPatch
-        public static void patch2(AbstractCard ___targetCard) {
+        public static void patch2(AbstractCard ___targetCard, boolean ___isDone) {
             if (undoUnpowering) {
                 ___targetCard.type = CardType.POWER;
                 undoUnpowering = false;
