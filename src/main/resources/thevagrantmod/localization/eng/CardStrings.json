@@ -159,5 +159,9 @@
     "NAME": "Maintenance",
     "DESCRIPTION": "At the start of your turn, Upgrade a random card in your hand for the rest of combat.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, Upgrade 2 random cards in your hand for the rest of combat."
+  },
+  "${modID}:WallOfThorns": {
+    "NAME": "Wall of Thorns",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, apply !M! ${modID}:Blight."
   }
 }

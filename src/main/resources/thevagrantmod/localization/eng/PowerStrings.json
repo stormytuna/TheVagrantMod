@@ -49,5 +49,12 @@
       "At the start of your turn, Upgrade #b",
       " random cards in your hand for the rest of combat."
     ]
+  },
+  "${modID}:WallOfThornsPower": {
+    "NAME": "Wall of Thorns",
+    "DESCRIPTIONS": [
+      "When attacked, apply #b",
+      " #yBlight to the enemy."
+    ]
   }
 }
