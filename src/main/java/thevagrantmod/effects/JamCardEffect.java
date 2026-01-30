@@ -35,7 +35,7 @@ public class JamCardEffect extends AbstractGameEffect {
     public void update() {
         if (duration == DUR) {
             String sound = unjamming ? "UNJAM" : "JAM";
-            CardCrawlGame.sound.playAV(TheVagrantMod.makeID(sound), 0.2f, 4f);
+            CardCrawlGame.sound.playAV(TheVagrantMod.makeID(sound), MathUtils.random(0.1f, 0.3f), 4f);
         }
 
         this.duration -= Gdx.graphics.getDeltaTime();
