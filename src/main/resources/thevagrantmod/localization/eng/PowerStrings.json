@@ -33,5 +33,13 @@
       "At the end of each of its turn, gains #b",
       " #yBlight."
     ]
+  },
+  "${modID}:ReclamationPower": {
+    "NAME": "Reclamation",
+    "DESCRIPTIONS": [
+      "At the start of your turn, put a card from your discard pile into your hand.",
+      "At the start of your turn, put #b",
+      " cards from your discard pile into your hand."
+    ]
   }
 }

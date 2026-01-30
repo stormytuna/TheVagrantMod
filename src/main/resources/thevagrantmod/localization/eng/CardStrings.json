@@ -149,5 +149,10 @@
   "${modID}:CreepingInfection": {
     "NAME": "Creeping Infection",
     "DESCRIPTION": "Apply !M! ${modID}:Blight. NL Enemy gains !M! ${modID}:Blight at the end of each of its turns. NL Exhaust."
+  },
+  "${modID}:Reclamation": {
+    "NAME": "Reclamation",
+    "DESCRIPTION": "At the start of your turn, put a card from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, put a card from your discard pile into your hand."
   }
 }

@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import thevagrantmod.TheVagrantMod;
@@ -32,9 +33,11 @@ public class Replicate extends BaseCard {
         return new Replicate();
     }
 
+    private static final String DUPLICATE_STRING = CardCrawlGame.languagePack.getUIString("DualWieldAction").TEXT[0];
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SelectCardsInHandAction(1, "TODO: Localisation!", card -> {
+        addToBot(new SelectCardsInHandAction(1, DUPLICATE_STRING, card -> {
             if (card.size() < 1) {
                 return;
             }
