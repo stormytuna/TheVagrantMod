@@ -151,7 +151,6 @@ public class JammedModifier extends AbstractCardModifier {
     }
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderCardBg")
-    @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
     @SpirePatch2(clz = AbstractCard.class, method = "renderPortraitFrame")
     @SpirePatch2(clz = AbstractCard.class, method = "renderBannerImage")
     public static class JammedGrayscaleCardBits {
@@ -160,7 +159,7 @@ public class JammedModifier extends AbstractCardModifier {
         @SpirePrefixPatch
         public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
             if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
-                BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance) * 0.7f);
+                BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance) * 0.5f);
                 undoGrayShader = true;
             }
         }
