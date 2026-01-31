@@ -1,6 +1,5 @@
 package thevagrantmod.actions;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
@@ -13,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
+import thevagrantmod.interfaces.InterfaceHelpers;
 
 public class JamAllCardsInHandAction extends AbstractGameAction {
     private Stack<AbstractCard> cardsToJam = new Stack<>();
@@ -56,6 +56,7 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
 
             AbstractCard c = cardsToJam.pop();
             CardModifierManager.addModifier(c, new JammedModifier());
+            InterfaceHelpers.cardJamChanged(c, false);
 
             JamSpecificCardAction.Fields.oldCardTarget.set(c, c.target);
             c.target = CardTarget.SELF;

@@ -9,7 +9,9 @@
   {
     "PROPER_NAME": "Jammed",
     "NAMES": [
-      "jammed"
+      "jammed",
+      "unjam",
+      "unjams"
     ],
     "DESCRIPTION": "This card has no effect when played and then Unjams."
   },

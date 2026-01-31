@@ -77,5 +77,13 @@
     "DESCRIPTIONS": [
       "Your traps hit ALL enemies."
     ]
+  },
+  "${modID}:SparePartsPower": {
+    "NAME": "Spare Parts",
+    "DESCRIPTIONS": [
+      "Whenever you #yUnjam a card, draw a card.",
+      "Whenever you #yUnjam a card, draw #b",
+      " cards."
+    ]
   }
 }
