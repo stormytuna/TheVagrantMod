@@ -187,5 +187,9 @@
   "${modID}:ScavengeCells": {
     "NAME": "Scavenge Cells",
     "DESCRIPTION": "Gain !M! [E] . NL Can be Upgraded any number of times."
+  },
+  "${modID}:EmbraceInfection": {
+    "NAME": "Embrace Infection",
+    "DESCRIPTION": "Innate. NL If the enemy has no ${modID}:Blight, apply !M! ${modID} Blight. NL Exhaust."
   }
 }
