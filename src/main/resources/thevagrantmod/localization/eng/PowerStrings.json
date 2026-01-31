@@ -79,5 +79,13 @@
       "Whenever you #yUnjam a card, draw #b",
       " cards."
     ]
+  },
+  "${modID}:DeadeyePower": {
+    "NAME": "Deadeye",
+    "DESCRIPTIONS": [
+      "Your next Attack deals double damage.",
+      "Your next #b",
+      " Attacks deal double damage."
+    ]
   }
 }
