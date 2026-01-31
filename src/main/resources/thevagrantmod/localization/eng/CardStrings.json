@@ -179,5 +179,13 @@
   "${modID}:BountyHunting": {
     "NAME": "Bounty Hunting",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain an additional card reward at the end of combat. NL Exhaust."
+  },
+  "${modID}:SuppressiveFire": {
+    "NAME": "Suppressive Fire",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
+  },
+  "${modID}:ScavengeCells": {
+    "NAME": "Scavenge Cells",
+    "DESCRIPTION": "Gain !M! [E] . NL Can be Upgraded any number of times."
   }
 }
