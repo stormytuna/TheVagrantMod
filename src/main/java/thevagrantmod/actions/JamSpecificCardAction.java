@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
+import thevagrantmod.interfaces.InterfaceHelpers;
 
 public class JamSpecificCardAction extends AbstractGameAction {
     private AbstractCard card;
@@ -32,6 +33,7 @@ public class JamSpecificCardAction extends AbstractGameAction {
             }
 
             CardModifierManager.addModifier(card, new JammedModifier());
+            InterfaceHelpers.cardJamChanged(card, false);
 
             Fields.oldCardTarget.set(card, card.target);
             card.target = CardTarget.SELF;

@@ -186,7 +186,7 @@
   },
   "${modID}:ScavengeCells": {
     "NAME": "Scavenge Cells",
-    "DESCRIPTION": "Gain !M! [E] . NL Can be Upgraded any number of times."
+    "DESCRIPTION": "Gain !M! [E] . NL Can be Upgraded any number of times. NL Exhaust."
   },
   "${modID}:EmbraceInfection": {
     "NAME": "Embrace Infection",
@@ -195,5 +195,10 @@
   "${modID}:FieldRepairs": {
     "NAME": "Field Repairs",
     "DESCRIPTION": "Gain !B! Block. NL ${modID}:Unjam all cards in your hand."
+  },
+  "${modID}:SpareParts": {
+    "NAME": "Spare Parts",
+    "DESCRIPTION": "Whenever you Unjam a card, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Innate. Whenever you Unjam a card, draw !M! card."
   }
 }

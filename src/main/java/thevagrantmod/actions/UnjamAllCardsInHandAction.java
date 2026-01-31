@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
+import thevagrantmod.interfaces.InterfaceHelpers;
 
 public class UnjamAllCardsInHandAction extends AbstractGameAction {
     private Stack<AbstractCard> cardsToUnjam = new Stack<>();
@@ -54,6 +55,7 @@ public class UnjamAllCardsInHandAction extends AbstractGameAction {
 
             AbstractCard c = cardsToUnjam.pop();
             CardModifierManager.removeModifiersById(c, JammedModifier.ID, false);
+            InterfaceHelpers.cardJamChanged(c, true);
 
             c.target = JamSpecificCardAction.Fields.oldCardTarget.get(c);
 

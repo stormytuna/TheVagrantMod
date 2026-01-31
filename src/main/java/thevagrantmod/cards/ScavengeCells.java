@@ -27,6 +27,7 @@ public class ScavengeCells extends BaseCard {
     public ScavengeCells(int upgrades) {
         super(ID, INFO);
         setMagic(1);
+        setExhaust(true);
         timesUpgraded = upgrades;
     }
 
