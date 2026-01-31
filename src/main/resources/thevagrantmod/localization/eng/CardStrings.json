@@ -179,5 +179,14 @@
   "${modID}:BountyHunting": {
     "NAME": "Bounty Hunting",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain an additional card reward at the end of combat. NL Exhaust."
+  },
+  "${modID}:PrimeCharges": {
+    "NAME": "Prime Charges",
+    "DESCRIPTION": "Shuffle !M! *Trip *Charges into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Shuffle !M! *Trip *Charges into your draw pile."
+  },
+  "${modID}:MasterTrapper": {
+    "NAME": "Master Trapper",
+    "DESCRIPTION": "Shuffle !M! *Trip *Charges into your draw pile. NL Traps now hit ALL enemies."
   }
 }

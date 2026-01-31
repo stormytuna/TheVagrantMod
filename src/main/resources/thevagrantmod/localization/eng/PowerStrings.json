@@ -71,5 +71,11 @@
       "Gain an additional #b",
       " card rewards at the end of combat."
     ]
+  },
+  "${modID}:MasterTrapperPower": {
+    "NAME": "Master Trapper",
+    "DESCRIPTIONS": [
+      "Your traps hit ALL enemies."
+    ]
   }
 }

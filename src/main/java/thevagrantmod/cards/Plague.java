@@ -25,7 +25,7 @@ public class Plague extends BaseCard {
 
     public Plague() {
         super(ID, INFO);
-        setMagic(4);
+        setMagic(3);
     }
 
     @Override
