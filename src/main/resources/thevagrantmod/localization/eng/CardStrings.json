@@ -209,5 +209,13 @@
     "NAME": "Spare Parts",
     "DESCRIPTION": "Whenever you Unjam a card, draw !M! card.",
     "UPGRADE_DESCRIPTION": "Innate. Whenever you Unjam a card, draw !M! card."
+  },
+  "${modID}:HuntersMark": {
+    "NAME": "Hunter's Mark",
+    "DESCRIPTION": "Gain !M! Vigor. NL Apply 1 Vulnerable. NL Exhaust."
+  },
+  "${modID}:Deadeye": {
+    "NAME": "Deadeye",
+    "DESCRIPTION": "Your next Attack deals double damage."
   }
 }
