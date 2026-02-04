@@ -36,14 +36,7 @@ public class JamSpecificCardAction extends AbstractGameAction {
             CustomCardFields.Fields.oldCardTarget.set(card, card.target);
             card.target = CardTarget.SELF;
 
-            AbstractDungeon.effectList.add(new JamCardEffect(card));
-            if (AbstractDungeon.player.hoveredCard == card) {
-                AbstractDungeon.player.releaseCard();
-            }
-            AbstractDungeon.actionManager.removeFromQueue(card);
-            card.unhover();
-            card.untip();
-            card.stopGlowing();
+            AbstractDungeon.effectList.add(JamCardEffect.makeJamCardEffectAndPrepCardValues(card, false));
         }
 
         tickDuration();

@@ -27,15 +27,7 @@ public class UnjamSpecificCardAction extends AbstractGameAction {
 
             card.target = CustomCardFields.Fields.oldCardTarget.get(card);
 
-            // TODO: Centralise!!
-            AbstractDungeon.effectList.add(new JamCardEffect(card, true));
-            if (AbstractDungeon.player.hoveredCard == card) {
-                AbstractDungeon.player.releaseCard();
-            }
-            AbstractDungeon.actionManager.removeFromQueue(card);
-            card.unhover();
-            card.untip();
-            card.stopGlowing();
+            AbstractDungeon.effectList.add(JamCardEffect.makeJamCardEffectAndPrepCardValues(card, true));
         }
 
         tickDuration();

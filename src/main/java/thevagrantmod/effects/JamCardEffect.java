@@ -31,6 +31,20 @@ public class JamCardEffect extends AbstractGameEffect {
         this.unjamming = unjamming;
     }
 
+    public static JamCardEffect makeJamCardEffectAndPrepCardValues(AbstractCard card, boolean unjamming) {
+        JamCardEffect effect = new JamCardEffect(card, unjamming);
+
+        if (AbstractDungeon.player.hoveredCard == card) {
+            AbstractDungeon.player.releaseCard();
+        }
+        AbstractDungeon.actionManager.removeFromQueue(card);
+        card.unhover();
+        card.untip();
+        card.stopGlowing();
+
+        return effect;
+    }
+
     @Override
     public void update() {
         if (duration == DUR) {
