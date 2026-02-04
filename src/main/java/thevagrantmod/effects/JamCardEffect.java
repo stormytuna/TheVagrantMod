@@ -6,6 +6,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -76,4 +78,12 @@ public class JamCardEffect extends AbstractGameEffect {
         public static SpireField<Float> grayscaleStrength = new SpireField<>(() -> 0f );
     }
 
+    @SpirePatch2(clz = AbstractCard.class, method = "makeStatEquivalentCopy")
+    public static class CopyFields {
+        @SpirePostfixPatch
+        public static void patch(AbstractCard __instance, AbstractCard __result) {
+            float grayscaleStrength = Fields.grayscaleStrength.get(__instance); 
+            Fields.grayscaleStrength.set(__result, grayscaleStrength);
+        }
+    }
 }
