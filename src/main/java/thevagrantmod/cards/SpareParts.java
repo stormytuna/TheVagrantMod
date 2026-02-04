@@ -18,13 +18,13 @@ public class SpareParts extends BaseCard {
         CardType.POWER,
         CardRarity.UNCOMMON,
         CardTarget.SELF,
-        0
+        1
     );
 
     public SpareParts() {
         super(ID, INFO);
+        setCostUpgrade(0);
         setMagic(1);
-        setInnate(false, true);
     }
 
     @Override

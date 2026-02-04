@@ -23,7 +23,7 @@ public class FieldRepairs extends BaseCard {
 
     public FieldRepairs() {
         super(ID, INFO);
-        setBlock(8, 12);
+        setBlock(12, 3);
     }
 
     @Override

@@ -41,7 +41,10 @@ public class DeadeyePower extends BasePower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == CardType.ATTACK) {
             flash();
-            addToTop(new RemoveSpecificPowerAction(owner, owner, this));
+            amount --;
+            if (amount <= 0) {
+                addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            }
         }
     }
 }

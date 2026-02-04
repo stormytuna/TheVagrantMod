@@ -23,7 +23,7 @@ public class Brace extends BaseCard {
 
     public Brace() {
         super(ID, INFO);
-        setBlock(6, 2);
+        setBlock(6, 1);
     }
 
     @Override
