@@ -23,7 +23,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import thevagrantmod.TheVagrantMod;
 import thevagrantmod.actions.UnjamSpecificCardAction;
-import thevagrantmod.effects.JamCardEffect;
+import thevagrantmod.patches.CustomCardFields;
 import thevagrantmod.shaders.BetterGrayscaleShader;
 
 public class JammedModifier extends AbstractCardModifier {
@@ -146,8 +146,8 @@ public class JammedModifier extends AbstractCardModifier {
 
     @SpirePrefixPatch
     public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
-      if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
-        BetterGrayscaleShader.apply(sb, JamCardEffect.Fields.grayscaleStrength.get(__instance));
+      if (CustomCardFields.Fields.grayscaleStrength.get(__instance) > 0) {
+        BetterGrayscaleShader.apply(sb, CustomCardFields.Fields.grayscaleStrength.get(__instance));
         undoGrayShader = true;
       }
     }
@@ -169,9 +169,8 @@ public class JammedModifier extends AbstractCardModifier {
 
     @SpirePrefixPatch
     public static void applyShader(AbstractCard __instance, SpriteBatch sb) {
-      if (JamCardEffect.Fields.grayscaleStrength.get(__instance) > 0) {
-        BetterGrayscaleShader.apply(
-            sb, JamCardEffect.Fields.grayscaleStrength.get(__instance) * 0.5f);
+      if (CustomCardFields.Fields.grayscaleStrength.get(__instance) > 0) {
+        BetterGrayscaleShader.apply(sb, CustomCardFields.Fields.grayscaleStrength.get(__instance) * 0.5f);
         undoGrayShader = true;
       }
     }

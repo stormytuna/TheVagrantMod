@@ -13,6 +13,7 @@ import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
 import thevagrantmod.interfaces.InterfaceHelpers;
+import thevagrantmod.patches.CustomCardFields;
 
 public class JamAllCardsInHandAction extends AbstractGameAction {
     private Stack<AbstractCard> cardsToJam = new Stack<>();
@@ -58,7 +59,7 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
             CardModifierManager.addModifier(c, new JammedModifier());
             InterfaceHelpers.cardJamChanged(c, false);
 
-            JamSpecificCardAction.Fields.oldCardTarget.set(c, c.target);
+            CustomCardFields.Fields.oldCardTarget.set(c, c.target);
             c.target = CardTarget.SELF;
 
             AbstractDungeon.effectList.add(new JamCardEffect(c));
