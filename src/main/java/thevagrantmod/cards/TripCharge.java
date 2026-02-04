@@ -2,10 +2,12 @@ package thevagrantmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,34 +40,37 @@ public class TripCharge extends BaseCard {
         return new TripCharge();
     }
 
-    @Override
-    public void triggerWhenDrawn() {
-        if (AbstractDungeon.player.hasPower(MasterTrapperPower.ID)){
-            for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters){
-                if (monster.isDeadOrEscaped()){
-                    continue;
-                }
+    private void damageAll() {
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, damage, DamageType.THORNS, AttackEffect.FIRE));
+    }
 
-                addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+    private void damageLowestHealth() {
+        AbstractMonster weakestMonster = null;
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            if (monster.isDeadOrEscaped()) {
+                continue;
+            }
+
+            if (weakestMonster == null || monster.currentHealth < weakestMonster.currentHealth) {
+                weakestMonster = monster;
             }
         }
-        else{
-            AbstractMonster weakestMonster = null;
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (monster.isDeadOrEscaped()) {
-                    continue;
-                }
 
-                if (weakestMonster == null || monster.currentHealth < weakestMonster.currentHealth) {
-                    weakestMonster = monster;
-                }
-            }
+        if (weakestMonster == null) {
+            return;
+        }
 
-            if (weakestMonster == null) {
-                return;
-            }
+        addToBot(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+    }
 
-            addToBot(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+    @Override
+    public void triggerWhenDrawn() {
+        superFlash();
+
+        if (AbstractDungeon.player.hasPower(MasterTrapperPower.ID)){
+            damageAll();
+        } else {
+            damageLowestHealth();
         }
 
         addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand, true));
