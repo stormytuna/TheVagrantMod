@@ -15,6 +15,8 @@ import thevagrantmod.util.CardStats;
 public class RepeatingShot extends BaseCard {
     public static final String ID = TheVagrantMod.makeID("RepeatingShot");
 
+    private boolean isPreview;
+
     private static final CardStats INFO = new CardStats(
         TheVagrant.Meta.CARD_COLOR,
         CardType.ATTACK,
@@ -24,9 +26,20 @@ public class RepeatingShot extends BaseCard {
     );
 
     public RepeatingShot() {
+        this(false);
+    }
+
+    public RepeatingShot(boolean isPreview) {
         super(ID, INFO);
+
+        this.isPreview = isPreview;
+
         setDamage(8, 2);
         setExhaust(true);
+
+        if (!isPreview) {
+            cardsToPreview = new RepeatingShot(true);
+        }
     }
 
     @Override
@@ -35,14 +48,18 @@ public class RepeatingShot extends BaseCard {
     }
 
     @Override
+    public void upgrade() {
+        super.upgrade();
+
+        if (!isPreview) {
+            cardsToPreview.upgrade();
+        }
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(m, damage), AttackEffect.BLUNT_LIGHT));
-
-        AbstractCard card = makeStatEquivalentCopy();
-        card.cost = 1;
-        card.costForTurn = 1;
-        card.isCostModifiedForTurn = false;
-        addToBot(new MakeTempCardInHandAction(card));
+        addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy()));
     }
 }
 
