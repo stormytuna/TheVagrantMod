@@ -38,7 +38,8 @@
   },
   "${modID}:RepeatingShot": {
     "NAME": "Repeating Shot",
-    "DESCRIPTION": "Deal !D! damage. NL Add a copy of this card to your hand. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Add a *Repeating *Shot to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a *Repeating *Shot+ to your hand. NL Exhaust."
   },
   "${modID}:SplittingBolt": {
     "NAME": "Splitting Bolt",
@@ -216,5 +217,14 @@
   "${modID}:Deadeye": {
     "NAME": "Deadeye",
     "DESCRIPTION": "Your next Attack deals double damage."
+  },
+  "${modID}:CampOut": {
+    "NAME": "Camp Out",
+    "DESCRIPTION": "Gain !M! Regen."
+  },
+  "${modID}:Galvanize": {
+    "NAME": "Galvanize",
+    "DESCRIPTION": "The next X cards you play cost 0. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The next X+1 cards you play cost 0. NL Exhaust."
   }
 }

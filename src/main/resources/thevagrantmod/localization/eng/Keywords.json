@@ -4,7 +4,7 @@
     "NAMES": [
       "jam"
     ],
-    "DESCRIPTION": "Card becomes jammed. Jammed cards have no effect when played and then Unjam."
+    "DESCRIPTION": "Card becomes jammed. Jammed cards have no effect when played and then Unjam. #yStatus, #yCurse and #yUnplayable cards cannot be Jammed."
   },
   {
     "PROPER_NAME": "Jammed",

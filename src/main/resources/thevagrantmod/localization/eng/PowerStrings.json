@@ -93,5 +93,13 @@
       "Your next #b",
       " Attacks deal double damage."
     ]
+  },
+  "${modID}:GalvanizePower": {
+    "NAME": "Galvanize",
+    "DESCRIPTIONS": [
+      "Ignore energy cost on the next card you play.",
+      "Ignore energy cost on the next #b",
+      " #ycards you play."
+    ]
   }
 }
