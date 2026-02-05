@@ -25,6 +25,7 @@ public class CampOut extends BaseCard {
     public CampOut() {
         super(ID, INFO);
         setMagic(3, 1);
+        tags.add(CardTags.HEALING);
     }
 
     @Override

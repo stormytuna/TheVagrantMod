@@ -29,6 +29,7 @@ public class BountyHunting extends BaseCard {
         super(ID, INFO);
         setDamage(10, 2);
         setExhaust(true);
+        tags.add(CardTags.HEALING);
     }
 
     @Override
