@@ -2,8 +2,15 @@ package thevagrantmod.cardModifiers;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
+import com.evacipated.cardcrawl.modthespire.lib.Matcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
@@ -16,9 +23,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ShaderHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import javassist.CannotCompileException;
+import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import thevagrantmod.TheVagrantMod;
@@ -181,6 +190,85 @@ public class JammedModifier extends AbstractCardModifier {
         ShaderHelper.setShader(sb, ShaderHelper.Shader.DEFAULT);
         undoGrayShader = false;
       }
+    }
+  }
+
+  public static class JammedStrikethroughLocator extends SpireInsertLocator {
+    @Override
+    public int[] Locate(CtBehavior ctBehavior) throws Exception {
+      Matcher matcher = new Matcher.FieldAccessMatcher(GlyphLayout.class, "width");
+      int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
+      return new int[]{lines[1], lines[lines.length - 1]}; // Only 2nd and last occurrence
+    }
+  }
+
+  @SpirePatch2(clz = AbstractCard.class, method = "renderDescription")
+  public static class JammedDescriptionDarkeningSetup {
+    public static class Locator extends SpireInsertLocator {
+      @Override
+      public int[] Locate(CtBehavior ctBehavior) throws Exception {
+        Matcher matcher = new Matcher.FieldAccessMatcher(AbstractCard.class, "description");
+        int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
+        return new int[] {lines[2]}; // Third instance
+      }
+    }
+
+    @SpireInsertPatch(
+      locator = Locator.class,
+      localvars = {"i"}
+    )
+    public static void patch(AbstractCard __instance, SpriteBatch sb, int i) {
+      if (CardModifierManager.hasModifier(__instance, ID) && i == 1) {
+        JammedActuallyDoDescriptionDarknening.changeColor = true;
+      }
+    }
+
+    @SpirePostfixPatch
+    public static void patch(SpriteBatch sb) {
+        JammedActuallyDoDescriptionDarknening.changeColor = false;
+    }
+  }
+
+  @SpirePatch2(clz = FontHelper.class, method = "renderRotatedText")
+  public static class JammedActuallyDoDescriptionDarknening {
+    public static boolean changeColor = false;
+
+    private static Color oldColor = null;
+
+    public static class Locator extends SpireInsertLocator {
+      @Override
+      public int[] Locate(CtBehavior ctBehavior) throws Exception {
+        Matcher matcher = new Matcher.MethodCallMatcher(SpriteBatch.class, "begin");
+        int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
+        return lines;
+      }
+    }
+
+    @SpireInsertPatch(
+      locator = Locator.class
+    )
+    public static void patch(SpriteBatch sb, Color c) {
+      if (!changeColor) {
+        return;
+      }
+
+      if (oldColor == null) {
+        oldColor = new Color(c);
+
+        c.r *= 0.7f;
+        c.g *= 0.7f;
+        c.b *= 0.7f;
+        c.a = 0.6f;
+
+        return;
+      }
+
+      c.r = oldColor.r;
+      c.g = oldColor.g;
+      c.b = oldColor.b;
+      c.a = oldColor.a;
+
+      oldColor = null;
     }
   }
 }
