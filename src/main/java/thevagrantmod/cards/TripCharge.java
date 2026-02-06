@@ -13,7 +13,7 @@ public class TripCharge extends BaseCard {
     public static final String ID = TheVagrantMod.makeID("TripCharge");
 
     private static final CardStats INFO = new CardStats(
-        CardColor.COLORLESS, // TODO: *Should* be colourless, but don't want it to display in Colourless tab of card library..
+        CardColor.COLORLESS,
         CardType.SKILL,
         CardRarity.SPECIAL,
         CardTarget.NONE,
