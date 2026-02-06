@@ -16,18 +16,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import thevagrantmod.powers.MasterTrapperPower;
 
-public class PlayTrapAction extends AbstractGameAction {
+public class PlayTripChargeAction extends AbstractGameAction {
     AbstractCard card;
     int damage;
 
-    public PlayTrapAction(AbstractCard card, int damage) {
+    public PlayTripChargeAction(AbstractCard card, int damage) {
         this.card = card;
         this.damage = damage;
         duration = startDuration = Settings.ACTION_DUR_XFAST;
     }
 
     private void damageAll() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, damage, DamageType.THORNS, AttackEffect.FIRE));
+        addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, damage, DamageType.THORNS, AttackEffect.FIRE));
     }
 
     private void damageLowestHealth() {
@@ -46,12 +46,17 @@ public class PlayTrapAction extends AbstractGameAction {
             return;
         }
 
-        addToBot(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+        addToTop(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
     }
 
     @Override
     public void update() {
         if (duration == startDuration) {
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                isDone = true;
+                return;
+            }
+
             card.superFlash();
 
             float rad = (card.targetAngle * MathUtils.degreesToRadians) + (MathUtils.PI / 2);
@@ -67,8 +72,8 @@ public class PlayTrapAction extends AbstractGameAction {
                 damageLowestHealth();
             }
 
+            addToTop(new DrawCardAction(1));
             addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
-            addToBot(new DrawCardAction(1));
         }
 
         tickDuration();

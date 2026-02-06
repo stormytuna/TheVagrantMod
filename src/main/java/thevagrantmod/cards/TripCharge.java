@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import thevagrantmod.TheVagrantMod;
-import thevagrantmod.actions.PlayTrapAction;
+import thevagrantmod.actions.PlayTripChargeAction;
 import thevagrantmod.util.CardStats;
 
 public class TripCharge extends BaseCard {
@@ -34,7 +34,7 @@ public class TripCharge extends BaseCard {
 
     @Override
     public void triggerWhenDrawn() {
-        addToBot(new PlayTrapAction(this, magicNumber));
+        addToBot(new PlayTripChargeAction(this, magicNumber));
     }
 
     @Override
