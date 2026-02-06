@@ -15,12 +15,16 @@ import thevagrantmod.interfaces.InterfaceHelpers;
 import thevagrantmod.patches.CustomCardFields;
 
 public class UnjamAllCardsInHandAction extends AbstractGameAction {
+    private static final float TIME_PER_CARD_SLOW = 0.3f;
+    private static final float TIME_PER_CARD_FAST = 0.15f;
+
     private Stack<AbstractCard> cardsToUnjam = new Stack<>();
-    private float delayBetweenUnjams;
     private float nextUnjamTime;
+    private float timePerCard;
 
     public UnjamAllCardsInHandAction() {
         duration = startDuration = Settings.ACTION_DUR_LONG;
+        timePerCard = Settings.FAST_MODE ? TIME_PER_CARD_FAST : TIME_PER_CARD_SLOW;
     }
 
     @Override
@@ -41,14 +45,14 @@ public class UnjamAllCardsInHandAction extends AbstractGameAction {
 
             Collections.shuffle(cardsToUnjam);
 
-            // * 0.8 to ensure we always have a little extra buffer at the end of jamming all our cards
-            // TODO: Rewrite this, when jamming one card there's a long delay. maybe just change duration and startDuration dynamically...
-            delayBetweenUnjams = (startDuration * 0.8f) / cardsToUnjam.size();
-            nextUnjamTime = startDuration - delayBetweenUnjams;
+            float dur = (cardsToUnjam.size() + 1) * timePerCard;
+            duration = startDuration = dur;
+
+            nextUnjamTime = duration - timePerCard;
         }
 
         if (duration <= nextUnjamTime) {
-            nextUnjamTime -= delayBetweenUnjams;
+            nextUnjamTime -= timePerCard;
 
             if (cardsToUnjam.size() <= 0) {
                 isDone = true;
