@@ -4,7 +4,7 @@
     "NAMES": [
       "jam"
     ],
-    "DESCRIPTION": "Card becomes jammed. Jammed cards have no effect when played and then Unjam. #yStatus, #yCurse and #yUnplayable cards cannot be Jammed."
+    "DESCRIPTION": "Card becomes #yJammed. #yJammed cards have no effect when played and then #yUnjam. #yStatus, #yCurse, and #yUnplayable cards cannot be #yJammed."
   },
   {
     "PROPER_NAME": "Jammed",
@@ -13,27 +13,27 @@
       "unjam",
       "unjams"
     ],
-    "DESCRIPTION": "This card has no effect when played and then Unjams."
+    "DESCRIPTION": "This card has no effect when played, then #yUnjams."
   },
   {
     "PROPER_NAME": "Blight",
     "NAMES": [
       "blight"
     ],
-    "DESCRIPTION": "When a creature reaches #b20 Blight it loses #b50 HP and then loses #b20 Blight."
+    "DESCRIPTION": "When a creature reaches #b20 #yBlight it loses #b50 HP and then loses #b20 #yBlight."
   },
   {
     "PROPER_NAME": "Trap",
     "NAMES": [
       "trap"
     ],
-    "DESCRIPTION": "Unplayable. Plays itself when drawn, Exhausts itself, and draws 1 card."
+    "DESCRIPTION": "#yUnplayable. Plays itself when drawn, #yExhausts itself, then draws #b1 card."
   },
   {
     "PROPER_NAME": "Downgrade",
     "NAMES": [
       "downgrade"
     ],
-    "DESCRIPTION": "Downgrading a card removes #y1 upgrade from it. Unupgraded cards cannot be Downgraded."
+    "DESCRIPTION": "#yDowngrading a card removes #b1 upgrade from it. Unupgraded cards cannot be #yDowngraded."
   }
 ]

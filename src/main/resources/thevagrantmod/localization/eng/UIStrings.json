@@ -6,7 +6,12 @@
   },
   "${modID}:CantPlayFrustration": {
     "TEXT": [
-      "I don't have any Jammed cards in my hand."
+      "I don't have any #rJammed cards in my hand."
+    ]
+  },
+  "${modID}:SensoryStone": {
+    "TEXT": [
+      "#p~SICKNESS.~ NL NL A quadrupedal creature skitters close to you. Your body reacts instinctively, lashing out and spreading your #p~vile~ #p~curse.~ NL NL You fall to your knees, clutching your #yMemento. NL NL You must forge ahead, you #r@must@ find a #gcure. NL NL Rising back to your feet, you notice the source of your #p@infection@ is in view..."
     ]
   }
 }

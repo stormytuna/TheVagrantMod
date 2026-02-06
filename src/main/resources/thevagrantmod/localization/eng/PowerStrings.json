@@ -2,7 +2,7 @@
   "${modID}:BlightPower": {
     "NAME": "Blight",
     "DESCRIPTIONS": [
-      "When the target reaches 20 Blight, it loses 50 HP and then loses 20 Blight."
+      "When the target reaches #b20 #yBlight, it loses #b50 HP and then loses #b20 #yBlight."
     ]
   },
   "${modID}:VirulencePower": {
@@ -75,7 +75,7 @@
   "${modID}:MasterTrapperPower": {
     "NAME": "Master Trapper",
     "DESCRIPTIONS": [
-      "Your traps hit ALL enemies."
+      "Your #yTraps hit ALL enemies."
     ]
   },
   "${modID}:SparePartsPower": {
@@ -89,9 +89,9 @@
   "${modID}:DeadeyePower": {
     "NAME": "Deadeye",
     "DESCRIPTIONS": [
-      "Your next Attack deals double damage.",
+      "Your next #yAttack deals double damage.",
       "Your next #b",
-      " Attacks deal double damage."
+      " #yAttacks deal double damage."
     ]
   },
   "${modID}:GalvanizePower": {

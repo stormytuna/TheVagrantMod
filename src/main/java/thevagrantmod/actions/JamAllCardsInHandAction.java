@@ -58,7 +58,7 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
                 return;
             }
 
-            Collections.shuffle(cardsToJam);
+            Collections.shuffle(cardsToJam, new java.util.Random(AbstractDungeon.shuffleRng.randomLong()));
 
             float dur = (cardsToJam.size() + 1) * timePerCard;
             duration = startDuration = dur;

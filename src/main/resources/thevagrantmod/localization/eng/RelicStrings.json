@@ -3,14 +3,16 @@
     "NAME": "Strange Spores",
     "FLAVOR": "These odd spores seem to move away from the light.",
     "DESCRIPTIONS": [
-      "At the end of your turn, apply #b", " #y${modID}:Blight to ALL enemies."
+      "At the end of your turn, apply #b",
+      " #y${modID}:Blight to ALL enemies."
     ]
   },
   "${modID}:Toolbelt": {
     "NAME": "Toolbelt",
     "FLAVOR": "Perfect for an engineer on the go!",
     "DESCRIPTIONS": [
-      "Whenever you #y${modID}:Unjam a card, gain #b", " #yBlock."
+      "Whenever you #y${modID}:Unjam a card, gain #b",
+      " #yBlock."
     ]
   },
   "${modID}:Prototype": {

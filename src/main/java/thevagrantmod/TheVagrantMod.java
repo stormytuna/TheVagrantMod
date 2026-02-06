@@ -2,13 +2,11 @@ package thevagrantmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thevagrantmod.cards.BaseCard;
 import thevagrantmod.character.TheVagrant;
 import thevagrantmod.relics.BaseRelic;
-import thevagrantmod.relics.StrangeSpores;
 import thevagrantmod.shaders.BetterGrayscaleShader;
 import thevagrantmod.util.GeneralUtils;
 import thevagrantmod.util.KeywordInfo;
@@ -148,10 +146,6 @@ public class TheVagrantMod implements
                 localizationPath(lang, "CardStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 localizationPath(lang, "CharacterStrings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                localizationPath(lang, "EventStrings.json"));
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, "OrbStrings.json"));
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 localizationPath(lang, "PotionStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class,

@@ -43,7 +43,7 @@
   },
   "${modID}:SplittingBolt": {
     "NAME": "Splitting Bolt",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Can be upgraded any number of times."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Can be Upgraded any number of times."
   },
   "${modID}:Virulence": {
     "NAME": "Virulence",
@@ -188,7 +188,7 @@
   },
   "${modID}:MasterTrapper": {
     "NAME": "Master Trapper",
-    "DESCRIPTION": "Shuffle !M! *Trip *Charges into your draw pile. NL Traps now hit ALL enemies."
+    "DESCRIPTION": "Shuffle !M! *Trip *Charges into your draw pile. NL ${modID}:Traps now hit ALL enemies."
   },
   "${modID}:SuppressiveFire": {
     "NAME": "Suppressive Fire",
@@ -196,7 +196,7 @@
   },
   "${modID}:ScavengeCells": {
     "NAME": "Scavenge Cells",
-    "DESCRIPTION": "Gain !M! [E] . NL Can be Upgraded any number of times. NL Exhaust."
+    "DESCRIPTION": "Gain !M! [E]. NL Can be Upgraded any number of times. NL Exhaust."
   },
   "${modID}:EmbraceInfection": {
     "NAME": "Embrace Infection",
@@ -208,7 +208,7 @@
   },
   "${modID}:SpareParts": {
     "NAME": "Spare Parts",
-    "DESCRIPTION": "Whenever you Unjam a card, draw !M! card."
+    "DESCRIPTION": "Whenever you ${modID}:Unjam a card, draw !M! card."
   },
   "${modID}:HuntersMark": {
     "NAME": "Hunter's Mark",
@@ -229,7 +229,7 @@
   },
   "${modID}:Frustration": {
     "NAME": "Frustration",
-    "DESCRIPTION": "Can only be played if you have a ${modID}:Jammed card in your hand. Deal !D! damage."
+    "DESCRIPTION": "Can only be played if you have a ${modID}:Jammed card in your hand. NL Deal !D! damage."
   },
   "${modID}:ExploitWeakness": {
     "NAME": "Exploit Weakness",

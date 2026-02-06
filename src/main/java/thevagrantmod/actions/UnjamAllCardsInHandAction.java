@@ -43,7 +43,7 @@ public class UnjamAllCardsInHandAction extends AbstractGameAction {
                 return;
             }
 
-            Collections.shuffle(cardsToUnjam);
+            Collections.shuffle(cardsToUnjam, new java.util.Random(AbstractDungeon.shuffleRng.randomLong()));
 
             float dur = (cardsToUnjam.size() + 1) * timePerCard;
             duration = startDuration = dur;
