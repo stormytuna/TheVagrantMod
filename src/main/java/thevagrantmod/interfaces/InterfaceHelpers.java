@@ -3,6 +3,7 @@ package thevagrantmod.interfaces;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class InterfaceHelpers {
     /**
@@ -14,6 +15,11 @@ public class InterfaceHelpers {
         for (AbstractPower p : AbstractDungeon.player.powers) {
             if (p instanceof OnCardJamChangedSubscriber) {
                 ((OnCardJamChangedSubscriber)p).receiveCardJamChanged(c, jammedToUnjammed);
+            }
+        }
+        for (AbstractRelic r : AbstractDungeon.player.relics){
+            if (r instanceof OnCardJamChangedSubscriber) {
+                ((OnCardJamChangedSubscriber)r).receiveCardJamChanged(c, jammedToUnjammed);
             }
         }
     }

@@ -11,7 +11,7 @@ import thevagrantmod.powers.BlightPower;
 public class StrangeSpores extends BaseRelic{
     public static final String ID = TheVagrantMod.makeID("StrangeSpores");
     public static final RelicTier TIER = RelicTier.SHOP;
-    public static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
+    public static final LandingSound LANDING_SOUND = LandingSound.SOLID;
     public static final int BLIGHT_AMOUNT = 2;
 
     public StrangeSpores() {

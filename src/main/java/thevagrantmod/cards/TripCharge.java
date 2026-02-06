@@ -32,7 +32,7 @@ public class TripCharge extends BaseCard {
 
     public TripCharge() {
         super(ID, INFO);
-        setDamage(6, 2);
+        setMagic(6, 2);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class TripCharge extends BaseCard {
     }
 
     private void damageAll() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, damage, DamageType.THORNS, AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber, DamageType.THORNS, AttackEffect.FIRE));
     }
 
     private void damageLowestHealth() {
@@ -60,7 +60,7 @@ public class TripCharge extends BaseCard {
             return;
         }
 
-        addToBot(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+        addToBot(new DamageAction(weakestMonster, new DamageInfo(AbstractDungeon.player, magicNumber, DamageType.THORNS), AttackEffect.FIRE));
     }
 
     @Override
