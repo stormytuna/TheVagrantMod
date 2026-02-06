@@ -230,5 +230,10 @@
   "${modID}:Frustration": {
     "NAME": "Frustration",
     "DESCRIPTION": "Can only be played if you have a ${modID}:Jammed card in your hand. Deal !D! damage."
+  },
+  "${modID}:ExploitWeakness": {
+    "NAME": "Exploit Weakness",
+    "DESCRIPTION": "Draw a card for each unique debuff on that enemy.",
+    "UPGRADE_DESCRIPTION": "Draw a card for each unique debuff on that enemy +1."
   }
 }
