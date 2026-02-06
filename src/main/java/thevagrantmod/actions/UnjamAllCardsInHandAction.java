@@ -42,6 +42,7 @@ public class UnjamAllCardsInHandAction extends AbstractGameAction {
             Collections.shuffle(cardsToUnjam);
 
             // * 0.8 to ensure we always have a little extra buffer at the end of jamming all our cards
+            // TODO: Rewrite this, when jamming one card there's a long delay. maybe just change duration and startDuration dynamically...
             delayBetweenUnjams = (startDuration * 0.8f) / cardsToUnjam.size();
             nextUnjamTime = startDuration - delayBetweenUnjams;
         }
