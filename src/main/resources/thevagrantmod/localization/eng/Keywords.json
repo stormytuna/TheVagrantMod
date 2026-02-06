@@ -25,7 +25,8 @@
   {
     "PROPER_NAME": "Trap",
     "NAMES": [
-      "trap"
+      "trap",
+      "traps"
     ],
     "DESCRIPTION": "#yUnplayable. Plays itself when drawn, #yExhausts itself, then draws #b1 card."
   },
