@@ -2,14 +2,13 @@ package thevagrantmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.interfaces.AddAudioSubscriber;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.helpers.RelicType;
+import basemod.interfaces.*;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import thevagrantmod.cards.BaseCard;
 import thevagrantmod.character.TheVagrant;
+import thevagrantmod.relics.BaseRelic;
+import thevagrantmod.relics.StrangeSpores;
 import thevagrantmod.shaders.BetterGrayscaleShader;
 import thevagrantmod.util.GeneralUtils;
 import thevagrantmod.util.KeywordInfo;
@@ -41,6 +40,7 @@ import java.util.*;
 public class TheVagrantMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
+        EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         AddAudioSubscriber,
@@ -81,6 +81,21 @@ public class TheVagrantMod implements
             .setDefaultSeen(true)
             .cards();
 	}
+
+
+    @Override
+    public void receiveEditRelics() {
+        new AutoAdd(modID)
+                .packageFilter(BaseRelic.class)
+                .any(BaseRelic.class, (info, relic) -> {
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool);
+                    else
+                        BaseMod.addRelic(relic, relic.relicType);
+                    if (info.seen)
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
+    }
 
     @Override
     public void receivePostInitialize() {

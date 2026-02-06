@@ -1,9 +1,9 @@
 {
-  "${modID}:RelicID": {
-    "NAME": "Good Relic",
-    "FLAVOR": "Flavor text displayed in detailed relic view.",
+  "${modID}:StrangeSpores": {
+    "NAME": "Strange Spores",
+    "FLAVOR": "These odd spores seem to move away from the light.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. [E] is an energy icon."
+      "At the end of your turn, apply #b", " #y${modID}:Blight to ALL enemies."
     ]
   }
 }

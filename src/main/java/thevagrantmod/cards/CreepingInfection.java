@@ -18,12 +18,12 @@ public class CreepingInfection extends BaseCard {
         CardType.SKILL,
         CardRarity.RARE,
         CardTarget.ENEMY,
-        1
+        2
     );
 
     public CreepingInfection() {
         super(ID, INFO);
-        setMagic(4, 1);
+        setMagic(6, 2);
         setExhaust(true);
     }
 
