@@ -247,5 +247,10 @@
   "${modID}:ImprovisedDefense": {
     "NAME": "Improvised Defense",
     "DESCRIPTION": "Gain !B! Block. NL ${modID}:Jam a random card in your hand."
+  },
+  "${modID}:ResoluteForm": {
+    "NAME": "Resolute Form",
+    "DESCRIPTION": "Ethereal. NL The first 2 cards you play each turn cost 0.",
+    "UPGRADE_DESCRIPTION": "The first 2 cards you play each turn cost 0."
   }
 }

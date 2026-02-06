@@ -109,5 +109,12 @@
       "The next #b",
       " cards that would #yJam this turn do not #yJam."
     ]
+  },
+  "${modID}:ResoluteFormPower": {
+    "NAME": "Resolute Form",
+    "DESCRIPTIONS": [
+      "The first #b",
+      " cards you play each turn cost #b0."
+    ]
   }
 }
