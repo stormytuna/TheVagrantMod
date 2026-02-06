@@ -243,5 +243,9 @@
   "${modID}:RefiningShot": {
     "NAME": "Refining Shot",
     "DESCRIPTION": "Deal !D! damage. NL Upgrade all cards in your hand for the rest of combat."
+  },
+  "${modID}:ImprovisedDefense": {
+    "NAME": "Improvided Defense",
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Jam a random card in your hand."
   }
 }
