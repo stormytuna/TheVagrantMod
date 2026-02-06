@@ -3,5 +3,10 @@
     "TEXT": [
       "${modID}:Jammed. NL "
     ]
+  },
+  "${modID}:CantPlayFrustration": {
+    "TEXT": [
+      "I don't have any Jammed cards in my hand."
+    ]
   }
 }

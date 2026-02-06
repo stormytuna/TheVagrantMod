@@ -226,5 +226,9 @@
     "NAME": "Galvanize",
     "DESCRIPTION": "The next X cards you play cost 0. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next X+1 cards you play cost 0. NL Exhaust."
+  },
+  "${modID}:Frustration": {
+    "NAME": "Frustration",
+    "DESCRIPTION": "Can only be played if you have a ${modID}:Jammed card in your hand. Deal !D! damage."
   }
 }
