@@ -171,7 +171,7 @@
   },
   "${modID}:TripCharge": {
     "NAME": "Trip Charge",
-    "DESCRIPTION": "${modID}:Trap. NL Deal !D! damage to the enemy with the least HP."
+    "DESCRIPTION": "${modID}:Trap. NL Deal !M! damage to the enemy with the least HP."
   },
   "${modID}:BaitAndSwitch": {
     "NAME": "Bait and Switch",
