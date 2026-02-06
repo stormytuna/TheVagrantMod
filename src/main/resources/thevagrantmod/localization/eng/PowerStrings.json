@@ -113,8 +113,8 @@
   "${modID}:ResoluteFormPower": {
     "NAME": "Resolute Form",
     "DESCRIPTIONS": [
-      "The first #b",
-      " cards you play each turn cost #b0."
+      "At the start of your turn, gain #b",
+      " Energy."
     ]
   }
 }

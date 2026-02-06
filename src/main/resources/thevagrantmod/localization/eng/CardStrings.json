@@ -250,7 +250,7 @@
   },
   "${modID}:ResoluteForm": {
     "NAME": "Resolute Form",
-    "DESCRIPTION": "Ethereal. NL The first 2 cards you play each turn cost 0.",
-    "UPGRADE_DESCRIPTION": "The first 2 cards you play each turn cost 0."
+    "DESCRIPTION": "Ethereal. NL At the start of your turn, gain [E] [E].",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, gain [E] [E]."
   }
 }
