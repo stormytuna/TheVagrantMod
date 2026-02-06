@@ -235,5 +235,9 @@
     "NAME": "Exploit Weakness",
     "DESCRIPTION": "Draw a card for each unique debuff on that enemy.",
     "UPGRADE_DESCRIPTION": "Draw a card for each unique debuff on that enemy +1."
+  },
+  "${modID}:PracticeShot": {
+    "NAME": "Practice Shot",
+    "DESCRIPTION": "Deal !D! damage. NL The next card that would ${modID}:Jam this turn does not ${modID}:Jam."
   }
 }

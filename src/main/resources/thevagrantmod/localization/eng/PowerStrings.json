@@ -101,5 +101,13 @@
       "Ignore energy cost on the next #b",
       " #ycards you play."
     ]
+  },
+  "${modID}:PracticeShotPower": {
+    "NAME": "Practice Shot",
+    "DESCRIPTIONS": [
+      "The next card that would #yJam this turn does not #yJam.",
+      "The next #b",
+      " cards that would #yJam this turn do not #yJam."
+    ]
   }
 }

@@ -4,16 +4,19 @@ import java.util.Collections;
 import java.util.Stack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import basemod.helpers.CardModifierManager;
 import thevagrantmod.cardModifiers.JammedModifier;
 import thevagrantmod.effects.JamCardEffect;
 import thevagrantmod.interfaces.InterfaceHelpers;
 import thevagrantmod.patches.CustomCardFields;
+import thevagrantmod.powers.PracticeShotPower;
 
 public class JamAllCardsInHandAction extends AbstractGameAction {
     private static final float TIME_PER_CARD_SLOW = 0.3f;
@@ -33,6 +36,17 @@ public class JamAllCardsInHandAction extends AbstractGameAction {
         if (duration == startDuration) {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
                 if (!JammedModifier.canJam(c)) {
+                    continue;
+                }
+
+                AbstractPower practiceShotPower = AbstractDungeon.player.getPower(PracticeShotPower.ID);
+                if (practiceShotPower != null) {
+                    practiceShotPower.flash();
+                    practiceShotPower.amount--;
+                    if (practiceShotPower.amount <= 0) {
+                        AbstractDungeon.player.powers.remove(practiceShotPower);
+                    }
+
                     continue;
                 }
 
