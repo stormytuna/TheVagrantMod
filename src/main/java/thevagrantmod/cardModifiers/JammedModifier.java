@@ -4,6 +4,7 @@ import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -118,8 +119,7 @@ public class JammedModifier extends AbstractCardModifier {
   }
 
   // Making it a skill in ctor as UseCardAction is in the action queue *after* our
-  // UnjamSpecificCardAction,
-  //   so would require weird hacks to remember it was jammed
+  // UnjamSpecificCardAction, so would require weird hacks to remember it was jammed
   @SpirePatch2(
       clz = UseCardAction.class,
       method = SpirePatch.CONSTRUCTOR,
@@ -193,17 +193,10 @@ public class JammedModifier extends AbstractCardModifier {
     }
   }
 
-  public static class JammedStrikethroughLocator extends SpireInsertLocator {
-    @Override
-    public int[] Locate(CtBehavior ctBehavior) throws Exception {
-      Matcher matcher = new Matcher.FieldAccessMatcher(GlyphLayout.class, "width");
-      int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
-      return new int[]{lines[1], lines[lines.length - 1]}; // Only 2nd and last occurrence
-    }
-  }
-
   @SpirePatch2(clz = AbstractCard.class, method = "renderDescription")
   public static class JammedDescriptionDarkeningSetup {
+    public static boolean changeColor = false;
+
     public static class Locator extends SpireInsertLocator {
       @Override
       public int[] Locate(CtBehavior ctBehavior) throws Exception {
@@ -213,62 +206,70 @@ public class JammedModifier extends AbstractCardModifier {
       }
     }
 
-    @SpireInsertPatch(
-      locator = Locator.class,
-      localvars = {"i"}
-    )
+    @SpireInsertPatch(locator = Locator.class, localvars = {"i"})
     public static void patch(AbstractCard __instance, SpriteBatch sb, int i) {
       if (CardModifierManager.hasModifier(__instance, ID) && i == 1) {
-        JammedActuallyDoDescriptionDarknening.changeColor = true;
+        changeColor = true;
       }
     }
 
     @SpirePostfixPatch
     public static void patch(SpriteBatch sb) {
-        JammedActuallyDoDescriptionDarknening.changeColor = false;
+        changeColor = false;
+    }
+
+    public static Color getRenderColor(Color c) {
+      Color newColor = new Color(c);
+      newColor.r *= 0.8f;
+      newColor.g *= 0.8f;
+      newColor.b *= 0.8f;
+      newColor.a *= 0.5f;
+
+      return newColor;
+
     }
   }
 
   @SpirePatch2(clz = FontHelper.class, method = "renderRotatedText")
   public static class JammedActuallyDoDescriptionDarknening {
-    public static boolean changeColor = false;
-
-    private static Color oldColor = null;
 
     public static class Locator extends SpireInsertLocator {
       @Override
       public int[] Locate(CtBehavior ctBehavior) throws Exception {
-        Matcher matcher = new Matcher.MethodCallMatcher(SpriteBatch.class, "begin");
+        Matcher matcher = new Matcher.MethodCallMatcher(BitmapFont.class, "setColor");
         int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
-        return lines;
+        return new int[]{lines[0] + 1};
       }
     }
 
-    @SpireInsertPatch(
-      locator = Locator.class
-    )
-    public static void patch(SpriteBatch sb, Color c) {
-      if (!changeColor) {
+    @SpireInsertPatch(locator = Locator.class, localvars = "font")
+    public static void patch(SpriteBatch sb, Color c, BitmapFont font) {
+      if (!JammedDescriptionDarkeningSetup.changeColor) {
         return;
       }
 
-      if (oldColor == null) {
-        oldColor = new Color(c);
+      font.setColor(JammedDescriptionDarkeningSetup.getRenderColor(c));
+    }
+  }
 
-        c.r *= 0.7f;
-        c.g *= 0.7f;
-        c.b *= 0.7f;
-        c.a = 0.6f;
+  @SpirePatch2(clz = AbstractCard.class, method = "renderSmallEnergy")
+  public static class JammedActuallyDoEnergyDarkening {
+    public static class Locator extends SpireInsertLocator {
+      @Override
+      public int[] Locate(CtBehavior ctBehavior) throws Exception {
+        Matcher matcher = new Matcher.MethodCallMatcher(SpriteBatch.class, "setColor");
+        int[] lines = LineFinder.findAllInOrder(ctBehavior, matcher);
+        return new int[]{lines[0] + 1};
+      }
+    }
 
+    @SpireInsertPatch(locator = Locator.class)
+    public static void patch(SpriteBatch sb, Color ___renderColor) {
+      if (!JammedDescriptionDarkeningSetup.changeColor) {
         return;
       }
 
-      c.r = oldColor.r;
-      c.g = oldColor.g;
-      c.b = oldColor.b;
-      c.a = oldColor.a;
-
-      oldColor = null;
+      sb.setColor(JammedDescriptionDarkeningSetup.getRenderColor(___renderColor));
     }
   }
 }
