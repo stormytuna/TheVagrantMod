@@ -239,5 +239,9 @@
   "${modID}:PracticeShot": {
     "NAME": "Practice Shot",
     "DESCRIPTION": "Deal !D! damage. NL The next card that would ${modID}:Jam this turn does not ${modID}:Jam."
+  },
+  "${modID}:RefiningShot": {
+    "NAME": "Refining Shot",
+    "DESCRIPTION": "Deal !D! damage. NL Upgrade all cards in your hand for the rest of combat."
   }
 }
