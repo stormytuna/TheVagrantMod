@@ -12,11 +12,12 @@ public class TogetherInSpireCompat {
     @SpirePatch2(clz = BlightPower.class, method = "doBlightHpLoss", requiredModId = "spireTogether")
     public static class BlightHpLossHostOnly {
         @SpirePrefixPatch
-        public static SpireReturn<Void> patch() {
+        public static SpireReturn<Void> patch(BlightPower __instance) {
             if (SpireHelp.Multiplayer.IsHost()) {
                 return SpireReturn.Continue();
             }
 
+            __instance.amount -= BlightPower.STACKS_FOR_HEALTH_LOSS;
             return SpireReturn.Return();
         }
     }

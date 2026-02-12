@@ -34,6 +34,8 @@ public class GalvanizePower extends BasePower {
         if (!card.purgeOnUse && amount > 0) {
             flash();
             amount--;
+            updateDescription();
+
             if (amount <= 0) {
                 addToTop(new RemoveSpecificPowerAction(owner, owner, this));
             }
