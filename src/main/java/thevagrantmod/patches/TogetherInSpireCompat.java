@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 
+import spireTogether.SpireTogetherMod;
 import spireTogether.util.SpireHelp;
 import thevagrantmod.powers.BlightPower;
 import thevagrantmod.powers.FlamingBoltPower;
@@ -13,7 +14,7 @@ public class TogetherInSpireCompat {
     public static class BlightHpLossHostOnly {
         @SpirePrefixPatch
         public static SpireReturn<Void> patch(BlightPower __instance) {
-            if (SpireHelp.Multiplayer.IsHost()) {
+            if (!SpireTogetherMod.isConnected || SpireHelp.Multiplayer.IsHost()) {
                 return SpireReturn.Continue();
             }
 
@@ -26,7 +27,7 @@ public class TogetherInSpireCompat {
     public static class FlamingBoltDamageHostOnly {
         @SpirePrefixPatch
         public static SpireReturn<Void> patch() {
-            if (SpireHelp.Multiplayer.IsHost()) {
+            if (!SpireTogetherMod.isConnected || SpireHelp.Multiplayer.IsHost()) {
                 return SpireReturn.Continue();
             }
 
